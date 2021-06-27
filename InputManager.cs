@@ -26,7 +26,7 @@ namespace GameSense
         private static readonly MassLogger Logger = new MassLogger(300000)
         {
             Ident = "GameSense/InputManager",
-            LogDebug = true,
+            LogDebug = false,
             InfoLogText = "Inputs"
         };
 
