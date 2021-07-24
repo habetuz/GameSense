@@ -11,7 +11,7 @@
 namespace GameSense
 {
     /// <summary>
-    /// Keyboard keys and their <see cref="GameSense.Struct.Frame.Bitmap"/> index.
+    /// Keyboard keys and their <see cref="GameSense.KeyboardFrame"/> index.
     /// </summary>
     public enum Key
     {

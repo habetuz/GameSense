@@ -36,11 +36,11 @@ namespace GameSense
         /// <summary>
         /// Sets a color in the <see cref="Bitmap"/> at the index.
         /// </summary>
-        /// <param name="index">The index of the <see cref="Bitmap"/></param>
+        /// <param name="index">The index of the <see cref="Bitmap"/>. Use a <see cref="Key"/> to set the color of a key</param>
         /// <param name="r">The red channel value</param>
         /// <param name="g">The green channel value</param>
         /// <param name="b">The blue channel value</param>
-        /// <returns>it self</returns>
+        /// <returns>It self</returns>
         public KeyboardFrame SetColor(int index, int r, int g, int b)
         {
             return this.SetColor(index, new int[] { r, g, b });
@@ -49,9 +49,9 @@ namespace GameSense
         /// <summary>
         /// Sets a color in the <see cref="Bitmap"/> at the index.
         /// </summary>
-        /// <param name="index">The index of the <see cref="Bitmap"/></param>
+        /// <param name="index">The index of the <see cref="Bitmap"/>. Use a <see cref="Key"/> to set the color of a key</param>
         /// <param name="color">The color to be set (RGB format)</param>
-        /// <returns>it self</returns>
+        /// <returns>It self</returns>
         public KeyboardFrame SetColor(int index, int[] color)
         {
             this.Bitmap[index] = color;

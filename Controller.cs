@@ -325,7 +325,7 @@ namespace GameSense
 
             List<EventBinder> events = new List<EventBinder>();
 
-            Frame keyboardFrame = KeyboardFrameManager.Generate();
+            KeyboardFrame keyboardFrame = KeyboardFrameManager.Generate();
             if(keyboardFrame != null)
             {
                 events.Add(new EventBinder
