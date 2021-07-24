@@ -13,12 +13,12 @@ namespace GameSense
     /// <summary>
     /// A class containing a color bitmap for a full keyboard effect. <seealso href="https://github.com/SteelSeries/gamesense-sdk/blob/master/doc/api/json-handlers-full-keyboard-lighting.mdx"/>
     /// </summary>
-    public class Frame
+    public class KeyboardFrame
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Frame"/> class.
+        /// Initializes a new instance of the <see cref="KeyboardFrame"/> class.
         /// </summary>
-        public Frame()
+        public KeyboardFrame()
         {
             this.Bitmap = new int[132][];
             int[] standardColor = new int[3];
@@ -41,7 +41,7 @@ namespace GameSense
         /// <param name="g">The green channel value</param>
         /// <param name="b">The blue channel value</param>
         /// <returns>it self</returns>
-        public Frame SetColor(int index, int r, int g, int b)
+        public KeyboardFrame SetColor(int index, int r, int g, int b)
         {
             return this.SetColor(index, new int[] { r, g, b });
         }
@@ -52,7 +52,7 @@ namespace GameSense
         /// <param name="index">The index of the <see cref="Bitmap"/></param>
         /// <param name="color">The color to be set (RGB format)</param>
         /// <returns>it self</returns>
-        public Frame SetColor(int index, int[] color)
+        public KeyboardFrame SetColor(int index, int[] color)
         {
             this.Bitmap[index] = color;
             return this;
@@ -62,11 +62,11 @@ namespace GameSense
         /// Creates a copy of itself.
         /// </summary>
         /// <returns>The copy</returns>
-        public Frame Copy()
+        public KeyboardFrame Copy()
         {
             int[][] copyBitmap = new int[132][];
             this.Bitmap.CopyTo(copyBitmap, 0);
-            return new Frame()
+            return new KeyboardFrame()
             {
                 Bitmap = copyBitmap
             };
