@@ -7,6 +7,7 @@ theme:
       - navigation.tabs
       - navigation.top
       - toc.integrate
+      - navigation.instant
   name: material
   palette:
     scheme: slate
@@ -28,5 +29,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+plugins:
+  - search
+  - autolinks
 extra_css:
   - stylesheets/extra.css
