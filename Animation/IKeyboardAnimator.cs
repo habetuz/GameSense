@@ -16,10 +16,10 @@ namespace GameSense.Animation
     public interface IKeyboardAnimator
     {
         /// <summary>
-        /// Generates the next <see cref="Frame"/>.
+        /// Generates the next <see cref="KeyboardFrame"/>.
         /// </summary>
-        /// <param name="bottomLayer">The bottom <see cref="Frame"/> the method will add it's own <see cref="Frame"/> on.</param>
-        /// <returns>the next <see cref="Frame"/></returns>
-        Frame NextFrame(Frame bottomLayer = null);
+        /// <param name="bottomLayer">The bottom <see cref="KeyboardFrame"/> the method will add it's own <see cref="KeyboardFrame"/> on.</param>
+        /// <returns>the next <see cref="KeyboardFrame"/></returns>
+        KeyboardFrame NextFrame(KeyboardFrame bottomLayer = null);
     }
 }

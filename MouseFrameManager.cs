@@ -18,7 +18,7 @@ namespace GameSense
 {
     using Animation;
 
-    public class MouseFrameManager
+    static class MouseFrameManager
     {
         public static IMouseAnimator Animator { get; set; }
 

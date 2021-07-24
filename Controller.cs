@@ -20,7 +20,7 @@ namespace GameSense
     /// <summary>
     /// Controls communication with the game sense API and the animation cycle. It starts automatically when <see cref="GradientColor1"/>, <see cref="GradientColor2"/>, <see cref="GameName"/>, <see cref="GameDisplayName"/> and <see cref="Developer"/> are set.
     /// </summary>
-    public class Controller
+    public static class Controller
     {
         private const string EventKeyboard      = "KEYBOARD_BITMAP";
         private const string EventMouseWheel    = "MOUSE_WHEEL";
@@ -49,15 +49,15 @@ namespace GameSense
         private static string developer;
 
         /// <summary>
-        /// Sets the <see cref="IAnimator"/> used for the keyboard background.
+        /// Sets the <see cref="IKeyboardAnimator"/> used for the keyboard background.
         /// </summary>
-        public static IKeyboardAnimator Background
+        public static IKeyboardAnimator KeyboardBackground
         {
             set
             {
                 KeyboardFrameManager.Background = value;
                 UpdateTimer.Enabled = true;
-                Logger.Log("Background set.", LoggerType.Info);
+                Logger.Log("Keyboard background set.", LoggerType.Info);
             }
         }
 
@@ -72,13 +72,13 @@ namespace GameSense
             }
         }
 
-        public static IMouseAnimator MouseAnimation
+        public static IMouseAnimator MouseBackground
         {
             set
             {
                 MouseFrameManager.Animator = value;
                 UpdateTimer.Enabled = true;
-                Logger.Log("Mouse animation set.", LoggerType.Info);
+                Logger.Log("Mouse background set.", LoggerType.Info);
             }
         }
 
@@ -133,7 +133,7 @@ namespace GameSense
         /// <summary>
         /// Initialize the <see cref="GameSense.Controller"/> and start game sense.
         /// </summary>
-        public static void Start()
+        private static void Start()
         {
             Logger.Log("Starting...", LoggerType.Info);
 

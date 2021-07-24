@@ -17,7 +17,7 @@ namespace GameSense
     /// <summary>
     /// Keeps track of all <see cref="GameSense.Animation.IAnimator"/> and combines the <see cref="GameSense.Struct.Frame"/>s from <see cref="GameSense.Animation.IAnimator.NextFrame(Struct.Frame)"/> to one final <see cref="GameSense.Struct.Frame"/>
     /// </summary>
-    public class KeyboardFrameManager
+    static class KeyboardFrameManager
     {
         private static readonly Logger Logger = new Logger()
         {
@@ -48,14 +48,14 @@ namespace GameSense
         }
 
         /// <summary>
-        /// Combines all stored <see cref="GameSense.Animation.IAnimator"/> to one <see cref="GameSense.Struct.Frame"/> by calling their <see cref="GameSense.Animation.IAnimator.NextFrame(Frame)"/> method.
+        /// Combines all stored <see cref="GameSense.Animation.IAnimator"/> to one <see cref="GameSense.Struct.Frame"/> by calling their <see cref="GameSense.Animation.IAnimator.NextFrame(KeyboardFrame)"/> method.
         /// </summary>
         /// <returns>The combined <see cref="GameSense.Struct.Frame"/></returns>
-        public static Frame Generate()
+        public static KeyboardFrame Generate()
         {
             if (background == null) return null;
 
-            Frame frame = background.NextFrame().Copy();
+            KeyboardFrame frame = background.NextFrame().Copy();
             Logger.Log(PressedKeys.Count + string.Empty);
             PressedKeys.ForEach(key => frame = key.NextFrame(frame));
             PressedKeys.RemoveAll(key => key.Finished);

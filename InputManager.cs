@@ -19,7 +19,7 @@ namespace GameSense
     /// <summary>
     /// Class responsible for managing keyboard and mouse inputs.
     /// </summary>
-    public class InputManager
+    static class InputManager
     {
         private static readonly IKeyboardMouseEvents GlobalHook = Hook.GlobalEvents();
 

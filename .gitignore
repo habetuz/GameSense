@@ -340,7 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 # Custom
-.editorconfig
-App.config
-KaLE.sln
-Settings.StyleCop
+site/

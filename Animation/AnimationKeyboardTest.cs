@@ -12,7 +12,7 @@ namespace GameSense.Animation
 {
     using SharpLog;
 
-    public class KeyboardTest : IKeyboardAnimator
+    class KeyboardTest : IKeyboardAnimator
     {
         private static readonly Logger Logger = new Logger
         {
@@ -22,17 +22,17 @@ namespace GameSense.Animation
         };
 
         private int pos = 0;
-        private Frame[] frames = new Frame[132];
+        private KeyboardFrame[] frames = new KeyboardFrame[132];
 
         public KeyboardTest()
         {
             for (int i = 0; i < this.frames.Length; i++)
             {
-                this.frames[i] = new Frame().SetColor(i, 255, 255, 255);
+                this.frames[i] = new KeyboardFrame().SetColor(i, 255, 255, 255);
             }
         }
 
-        public Frame NextFrame(Frame bottomLayer)
+        public KeyboardFrame NextFrame(KeyboardFrame bottomLayer)
         {
             this.pos += 1;
             if (this.pos > 132)

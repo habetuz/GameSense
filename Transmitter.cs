@@ -21,7 +21,7 @@ namespace GameSense
     /// <summary>
     /// Class responsible for the communication to the game sense engine.
     /// </summary>
-    public class Transmitter
+    public static class Transmitter
     {
         private static readonly MassLogger Logger = new MassLogger(300000)
         {

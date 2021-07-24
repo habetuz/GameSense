@@ -47,7 +47,7 @@ namespace GameSense.Animation
         }
 
         /// <summary>
-        /// Sets amount of <see cref="GameSense.Animation.IAnimator.NextFrame(Frame)"/> calls the key needs to fade out. Time dependents on the <see cref="GameSense.Controller.FrameLength"/>. Default: 100.
+        /// Sets amount of <see cref="GameSense.Animation.IAnimator.NextFrame(KeyboardFrame)"/> calls the key needs to fade out. Time dependents on the <see cref="GameSense.Controller.FrameLength"/>. Default: 100.
         /// </summary>
         public int FadeDuration
         {
@@ -79,11 +79,11 @@ namespace GameSense.Animation
         }
 
         /// <summary>
-        /// Generates the next <see cref="Frame"/>.
+        /// Generates the next <see cref="KeyboardFrame"/>.
         /// </summary>
-        /// <param name="bottomLayer">The bottom <see cref="Frame"/> the method will add it's own <see cref="Frame"/> on.</param>
-        /// <returns>the next <see cref="Frame"/></returns>
-        public Frame NextFrame(Frame bottomLayer)
+        /// <param name="bottomLayer">The bottom <see cref="KeyboardFrame"/> the method will add it's own <see cref="KeyboardFrame"/> on.</param>
+        /// <returns>the next <see cref="KeyboardFrame"/></returns>
+        public KeyboardFrame NextFrame(KeyboardFrame bottomLayer)
         {
             this.transparency -= 100 / this.fadeDuration;
             Logger.Log("Next frame. Transparency: " + this.transparency);

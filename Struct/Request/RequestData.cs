@@ -18,7 +18,7 @@ namespace GameSense.Struct.Request
         /// <summary>
         /// Gets or sets the frame
         /// </summary>
-        public Frame Frame { get; set; }
+        public KeyboardFrame Frame { get; set; }
 
         public int Value { get; set; }
     }

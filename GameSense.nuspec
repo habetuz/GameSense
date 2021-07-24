@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>GameSense</id>
+    <version>1.0.2</version>
+    <title>GameSense</title>
+    <authors>Marvin Fuchs</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://gamesense.marvin-fuchs.de</projectUrl>
+    <repository type="git" url="https://github.com/habetuz/GameSense" branch="master"/>
+    <description>GameSense API to controll SteelSeries products.</description>
+    <releaseNotes>
+      Change:
+      ~ Rename class GameSense.Frame to GameSense.KeyboardFrame
+      ~ Rename property GameSense.Controller.MouseAnimation to GameSense.Controller.MouseBackground
+      ~ Rename property GameSense.Controller.Background to GameSense.Controller.KeyboardBackground
+      ~ Make method GameSense.Controller.Start() private
+      ~ Make classes that don't need to be public protected
+    </releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>Steelseries</tags>
+    <dependencies>
+      <dependency id="MarvinFuchs.SharpLog" version="1.0.0"/>
+      <dependency id="MouseKeyHook" version="5.6.0"/>
+    </dependencies>
+  </metadata>
+</package>

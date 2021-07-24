@@ -30,18 +30,18 @@ namespace GameSense.Animation
         private static readonly int DimensionY = 6;
 
         private int currentFrame = 0;
-        private Frame[] frames;
+        private KeyboardFrame[] frames;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="KeyboardGradient"/> class.
         /// </summary>
         /// <param name="color1">The first color of the gradient (RGB format).</param>
         /// <param name="color2">The second color of the gradient (RGB format).</param>
-        /// <param name="time">The speed of the animation. The speed is dependent on the <see cref="GameSense.Controller.FrameLength"/>. It needs 22*'speed' <see cref="GameSense.Animation.IAnimator.NextFrame(Frame)"/> for one full animation cycle. Default: 1</param>
+        /// <param name="time">The speed of the animation. The speed is dependent on the <see cref="GameSense.Controller.FrameLength"/>. It needs 22*'speed' <see cref="GameSense.Animation.IAnimator.NextFrame(KeyboardFrame)"/> for one full animation cycle. Default: 1</param>
         /// <param name="length">How long the gradient is compared to the keyboard. The gradient is 'length'*keyboard long. Default: 1</param>
         public KeyboardGradient(int[] color1, int[] color2, int time = 1, int length = 1)
         {
-            List<Frame> frames = new List<Frame>();
+            List<KeyboardFrame> frames = new List<KeyboardFrame>();
             int[][] gradient = new int[DimensionX * time * length][];
             int[] difference = new int[]
             {
@@ -93,7 +93,7 @@ namespace GameSense.Animation
             for (int i = 0; i < gradient.Length; i++)
             {
                 // Generate bitmap
-                Frame frame = new Frame();
+                KeyboardFrame frame = new KeyboardFrame();
                 for (int x = 0; x < DimensionX; x++)
                 {
                     int index = (x * time) + i;
@@ -115,7 +115,7 @@ namespace GameSense.Animation
             Logger.Log(this.frames.Length + " frames rendered");
         }
 
-        Frame IKeyboardAnimator.NextFrame(Frame bottomLayer)
+        KeyboardFrame IKeyboardAnimator.NextFrame(KeyboardFrame bottomLayer)
         {
             if (this.currentFrame >= this.frames.Length)
             {
