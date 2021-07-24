@@ -1,0 +1,14 @@
+.md-typeset__table {
+    min-width: 100%;
+ }
+ 
+ .md-typeset table:not([class]) {
+    display: table;
+    overflow: hidden;
+ }
+
+ .md-typeset td > code,  .md-typeset article > code, .md-typeset p > code, .md-typeset a > code {
+    font-weight: bolder;
+    background: none;
+    padding: 0;
+  }

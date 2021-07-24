@@ -1,0 +1,32 @@
+site_name: GameSense SDK
+site_url: https://gamesense.marvin-fuchs.de/
+repo_url: https://github.com/habetuz/GameSense/
+edit_uri: edit/main/docs/
+theme:
+  features:
+      - navigation.tabs
+      - navigation.top
+      - toc.integrate
+  name: material
+  palette:
+    scheme: slate
+    primary: deep orange
+    accent: orange
+  font:
+    text: Montserrat
+    code: Roboto Mono
+markdown_extensions:
+  - toc:
+      permalink: true
+  - meta
+  - pymdownx.details
+  - attr_list
+  - pymdownx.highlight:
+      linenums: false
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+extra_css:
+  - stylesheets/extra.css
