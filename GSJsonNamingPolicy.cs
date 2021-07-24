@@ -17,7 +17,7 @@ namespace GameSense
     /// <summary>
     /// A <see cref="System.Text.Json.JsonNamingPolicy"/> for the game sense API.
     /// </summary>
-    static class GSJsonNamingPolicy : JsonNamingPolicy
+    class GSJsonNamingPolicy : JsonNamingPolicy
     {
         private static readonly Dictionary<string, string> DotNetGSPairs =
             new Dictionary<string, string>
