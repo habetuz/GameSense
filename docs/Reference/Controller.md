@@ -14,7 +14,6 @@ title: "Controller"
 Controls the GameSense SDK. Will do the most things you need.
 
 ## Summary
-
 ### Properties
 #### `public static`
 | Type                                                           | Property                                      | Get              | Set              |
@@ -64,7 +63,7 @@ Sets the [`IMouseAnimator`](/Reference/Animation/IMouseAnimator/) used as mouse 
 
 Sets the name of the game.
 
-??? note Naming restrictions
+??? note "Naming restrictions"
     Name is limited to uppercase A-Z, 0-9, hyphen, and underscore characters.
 
 ---

@@ -31,6 +31,11 @@ namespace GameSense.Struct.Request
         public string Developer { get; set; }
 
         /// <summary>
+        /// Gets or sets the event name.
+        /// </summary>
+        public string Event { get; set; }
+
+        /// <summary>
         /// Gets or sets the min-value.
         /// </summary>
         public int MinValue { get; set; }
@@ -54,11 +59,6 @@ namespace GameSense.Struct.Request
         /// Gets or sets the handlers.
         /// </summary>
         public Handler[] Handlers { get; set; }
-
-        /// <summary>
-        /// Gets or sets the event name.
-        /// </summary>
-        public string Event { get; set; }
 
         /// <summary>
         /// Gets or sets an array with events.
