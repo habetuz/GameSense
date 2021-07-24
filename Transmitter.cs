@@ -19,7 +19,7 @@ namespace GameSense
     using SharpLog;
 
     /// <summary>
-    /// Class responsible for the communication to the game sense engine.
+    /// Responsible for communication between GameSense and the GameSense Engine.
     /// </summary>
     public static class Transmitter
     {
@@ -72,10 +72,10 @@ namespace GameSense
         }
 
         /// <summary>
-        /// Sends a <see cref="Request"/> to the game sense engine.
+        /// Sends a <see cref="BaseRequest"/> to the game sense engine.
         /// </summary>
-        /// <param name="request">The request to send.</param>
-        /// <param name="endpoint">The endpoint where the request needs to be send.</param>
+        /// <param name="request">The request to be send</param>
+        /// <param name="endpoint">The endpoint where the request should be send</param>
         public static async void Send(BaseRequest request, string endpoint)
         {
             ////Logger.Log("Data: " + request.Game + " | " + request.Handlers.Length + " | " + request.Handlers[0].DeviceType);
