@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#transmitter" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -362,10 +367,101 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Transmitter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Transmitter
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-static" class="md-nav__link">
+    public static
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#send" class="md-nav__link">
+    Send
+  </a>
+  
+    <nav class="md-nav" aria-label="Send">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -655,9 +751,61 @@
                   </a>
                 
                 
-                  <h1>Transmitter</h1>
+                <h1 id="transmitter">Transmitter<a class="headerlink" href="#transmitter" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/habetuz/GameSense/blob/main/Transmitter.cs"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a></p>
+<p><code class="highlight"><span class="k">namespace</span> <span class="nn">GameSense</span></code></p>
+<p><code class="highlight"><span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">Transmitter</span></code></p>
+<hr />
+<p>Responsible for communication between GameSense and the GameSense Engine.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
+<h4 id="public-static"><code>public static</code><a class="headerlink" href="#public-static" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>void</code></td>
+<td><a href="#send"><code>Send</code></a><code>(</code><a href="/Reference/Struct/Request/BaseRequest/"><code>BaseRequest</code></a> <code>request, string endpoint)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">&para;</a></h2>
+<h3 id="send"><code>Send</code><a class="headerlink" href="#send" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/habetuz/GameSense/blob/main/Transmitter.cs#L79"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a></p>
+<p><code class="highlight"><span class="k">public</span> <span class="k">static</span> <span class="k">async</span> <span class="k">void</span> <span class="nf">Send</span><span class="p">(</span><span class="n">BaseRequest</span> <span class="n">request</span><span class="p">,</span> <span class="kt">string</span> <span class="n">endpoint</span><span class="p">)</span></code></p>
+<p>Sends a <a href="/Reference/Struct/Request/BaseRequest/"><code>BaseRequest</code></a> to an endpoint of the GameSense Engine.</p>
+<details class="note"><summary>Endpoints</summary><p>Read the <a href="https://github.com/SteelSeries/gamesense-sdk/blob/master/doc/api/sending-game-events.md">GameSense SDK documentation</a> for more information about endpoints. </p>
+</details>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/Reference/Struct/Request/BaseRequest/"><code>BaseRequest</code></a></td>
+<td><code>request</code></td>
+<td>The request to be send</td>
+</tr>
+<tr>
+<td><code>string</code></td>
+<td>endpoint</td>
+<td>The endpoint where the request should be send</td>
+</tr>
+</tbody>
+</table>
+<hr />
                 
-                
+                  
                 
               
               
@@ -732,7 +880,7 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.top", "toc.integrate", "navigation.instant"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.82b56eb2.min.js"></script>
