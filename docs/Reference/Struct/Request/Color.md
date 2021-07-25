@@ -11,7 +11,7 @@ title: Color
 
 ---
 
-Request that can be send to the GameSense Engine using the [`Transmitter`](Transmitter.md).
+Represents a RGB color. More information [here](https://github.com/SteelSeries/gamesense-sdk/blob/master/doc/api/json-handlers-color.md).
 
 ## Properties
 | Type  | Name    | Description                                                                                                                                                         |

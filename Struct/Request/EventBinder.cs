@@ -23,6 +23,6 @@ namespace GameSense.Struct.Request
         /// <summary>
         /// Gets or sets the request-data.
         /// </summary>
-        public RequestData Data { get; set; }
+        public EventData Data { get; set; }
     }
 }
