@@ -331,7 +331,7 @@ namespace GameSense
                 events.Add(new EventBinder
                 {
                     Event = EventKeyboard,
-                    Data = new RequestData
+                    Data = new EventData
                     {
                         Frame = keyboardFrame
                     }

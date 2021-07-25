@@ -13,6 +13,7 @@
     <releaseNotes>
       Change:
       ~ Rename class GameSense.Frame to GameSense.KeyboardFrame
+      ~ Rename class GameSense.Struct.Request.RequestData to GameSense.Struct.Request.EventData 
       ~ Rename property GameSense.Controller.MouseAnimation to GameSense.Controller.MouseBackground
       ~ Rename property GameSense.Controller.Background to GameSense.Controller.KeyboardBackground
       ~ Make method GameSense.Controller.Start() private

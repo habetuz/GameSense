@@ -10,13 +10,13 @@
 
 namespace GameSense
 {
+    using GameSense.Struct;
+    using GameSense.Struct.Request;
+    using SharpLog;
     using System;
     using System.Net.Http;
     using System.Text;
     using System.Text.Json;
-    using GameSense.Struct;
-    using GameSense.Struct.Request;
-    using SharpLog;
 
     /// <summary>
     /// Responsible for communication between GameSense and the GameSense Engine.
