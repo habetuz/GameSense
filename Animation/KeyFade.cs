@@ -13,7 +13,7 @@ namespace GameSense.Animation
     using SharpLog;
 
     /// <summary>
-    /// An <see cref="IAnimator"/> that animates a fading color for pressed keys
+    /// An <see cref="IKeyAnimator"/> that animates a fading color for keys
     /// </summary>
     public class KeyFade : IKeyAnimator
     {
@@ -47,7 +47,7 @@ namespace GameSense.Animation
         }
 
         /// <summary>
-        /// Sets amount of <see cref="GameSense.Animation.IAnimator.NextFrame(KeyboardFrame)"/> calls the key needs to fade out. Time dependents on the <see cref="GameSense.Controller.FrameLength"/>. Default: 100.
+        /// Sets amount of <see cref="GameSense.Animation.IKeyboardAnimator.NextFrame(KeyboardFrame)"/> calls the key needs to fade out. Time dependents on the <see cref="GameSense.Controller.FrameLength"/>. Default: 100.
         /// </summary>
         public int FadeDuration
         {
@@ -69,7 +69,7 @@ namespace GameSense.Animation
         /// Creates a copy of itself.
         /// </summary>
         /// <returns>The copy.</returns>
-        public IKeyAnimator Create()
+        public IKeyAnimator Copy()
         {
             return new KeyFade()
             {

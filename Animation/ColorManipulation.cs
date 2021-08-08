@@ -14,9 +14,9 @@ namespace GameSense.Animation
     using SharpLog;
 
     /// <summary>
-    /// Helper class that combines a color with another translucent color.
+    /// Helper class for combining and manipulating colors.
     /// </summary>
-    public class ColorManipulation
+    public static class ColorManipulation
     {
         private static readonly Logger Logger = new Logger()
         {
@@ -29,7 +29,7 @@ namespace GameSense.Animation
         /// </summary>
         /// <param name="bottom">The bottom color (RGB format)</param>
         /// <param name="top">The top color (RGB format)</param>
-        /// <param name="transparency">The transparency of the top color</param>
+        /// <param name="transparency">The transparency of the top color (0-100)</param>
         /// <returns>The combined color (RGB format)</returns>
         public static int[] Combine(int[] bottom, int[] top, int transparency)
         {

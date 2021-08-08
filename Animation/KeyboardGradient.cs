@@ -15,7 +15,7 @@ namespace GameSense.Animation
     using SharpLog;
 
     /// <summary>
-    /// An <see cref="IAnimator"/> that generates a gradient background effect. The gradient gets animated moving from right to left.
+    /// An <see cref="IKeyboardAnimator"/> that generates a gradient background effect. The gradient gets animated moving from right to left.
     /// </summary>
     public class KeyboardGradient : IKeyboardAnimator
     {
@@ -35,9 +35,9 @@ namespace GameSense.Animation
         /// <summary>
         /// Initializes a new instance of the <see cref="KeyboardGradient"/> class.
         /// </summary>
-        /// <param name="color1">The first color of the gradient (RGB format).</param>
-        /// <param name="color2">The second color of the gradient (RGB format).</param>
-        /// <param name="time">The speed of the animation. The speed is dependent on the <see cref="GameSense.Controller.FrameLength"/>. It needs 22*'speed' <see cref="GameSense.Animation.IAnimator.NextFrame(KeyboardFrame)"/> for one full animation cycle. Default: 1</param>
+        /// <param name="color1">The left color of the gradient (RGB format).</param>
+        /// <param name="color2">The right color of the gradient (RGB format).</param>
+        /// <param name="time">The speed of the animation. The speed is dependent on the <see cref="GameSense.Controller.FrameLength"/>. It needs 22*'speed' <see cref="GameSense.Animation.IAnimator.NextFrame(KeyboardFrame)"/>'s for one full animation cycle. Default: 1</param>
         /// <param name="length">How long the gradient is compared to the keyboard. The gradient is 'length'*keyboard long. Default: 1</param>
         public KeyboardGradient(int[] color1, int[] color2, int time = 1, int length = 1)
         {

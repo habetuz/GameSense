@@ -16,6 +16,7 @@
       ~ Rename class GameSense.Struct.Request.RequestData to GameSense.Struct.Request.EventData 
       ~ Rename property GameSense.Controller.MouseAnimation to GameSense.Controller.MouseBackground
       ~ Rename property GameSense.Controller.Background to GameSense.Controller.KeyboardBackground
+      ~ Rename method GameSense.Animation.IKeyAnimator.Create to GameSense.Animation.IKeyAnimator.Copy
       ~ Make method GameSense.Controller.Start() private
       ~ Make classes that don't need to be public protected
     </releaseNotes>

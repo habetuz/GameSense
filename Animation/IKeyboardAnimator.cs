@@ -16,7 +16,7 @@ namespace GameSense.Animation
     public interface IKeyboardAnimator
     {
         /// <summary>
-        /// Generates the next <see cref="KeyboardFrame"/>.
+        /// Generates the next <see cref="KeyboardFrame"/> of the animation.
         /// </summary>
         /// <param name="bottomLayer">The bottom <see cref="KeyboardFrame"/> the method will add it's own <see cref="KeyboardFrame"/> on.</param>
         /// <returns>the next <see cref="KeyboardFrame"/></returns>

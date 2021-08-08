@@ -67,7 +67,7 @@ namespace GameSense
             {
                 Logger.Log(((Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString())).ToString(), LoggerType.Info);
                 Logger.Log(((Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString())).ToString());
-                IKeyAnimator animation = DefaultKeyAnimation.Create();
+                IKeyAnimator animation = DefaultKeyAnimation.Copy();
                 animation.Key = (Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString());
                 KeyboardFrameManager.AddKeyAnimation(animation);
             }

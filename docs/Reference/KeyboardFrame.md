@@ -9,6 +9,8 @@ title: "KeyboardFrame"
 
 `#!c# public class KeyboardFrame`
 
+:material-subdirectory-arrow-right: [`KeyboardFrame`]()
+
 ---
 
 A class that contains a color bitmap for a full keyboard effect. See the [GameSense SDK docs](https://github.com/SteelSeries/gamesense-sdk/blob/master/doc/api/json-handlers-full-keyboard-lighting.md) for more information on full keyboard effects.
@@ -17,7 +19,7 @@ A class that contains a color bitmap for a full keyboard effect. See the [GameSe
 ### Constructors
 | Constructor             |
 | ----------------------- |
-| [`KeyboardFrame`]()`()` |
+| [`KeyboardFrame`](#keyboardframe_1)`()` |
 ### Properties
 #### `public`
 | Type      | Property                         | Get              | Set              |
@@ -43,7 +45,7 @@ Initializes a new instance of the class.
 ---
 ## Properties
 ### `Bitmap`
-[:material-file-code: Source](https://github.com/habetuz/GameSense/blob/main/KeyboardFrame.cs#L34) · :material-sign-direction: Default: A 132 by 3 int array filled with zeros.
+[:material-file-code: Source](https://github.com/habetuz/GameSense/blob/main/KeyboardFrame.cs#L34) · :octicons-milestone-16: Default: A 132 by 3 int array filled with zeros.
 
 `#!c# public int[][] Bitmap {get; set;}`
 
@@ -62,12 +64,12 @@ Sets a color in the [`Bitmap`](#bitmap).
 Itself
 
 #### Parameters
-| Type  | Name    | Description                                                                          | Default |
-| ----- | ------- | ------------------------------------------------------------------------------------ | ------- |
-| `int` | `index` | The index of the [`Bitmap`](#bitmap) or a [`Key`](/Reference/Key/) to set the color of a specific key | -       |
-| `int` | `r`     | The red channel value                                                                | -       |
-| `int` | `g`     | The green channel value                                                              | -       |
-| `int` | `b`     | The blue channel value                                                               | -       |
+| Type  | Name    | Description                                                                                           | Default                    |
+| ----- | ------- | ----------------------------------------------------------------------------------------------------- | -------------------------- |
+| `int` | `index` | The index of the [`Bitmap`](#bitmap) or a [`Key`](/Reference/Key/) to set the color of a specific key | :octicons-diff-removed-16: |
+| `int` | `r`     | The red channel value                                                                                 | :octicons-diff-removed-16: |
+| `int` | `g`     | The green channel value                                                                               | :octicons-diff-removed-16: |
+| `int` | `b`     | The blue channel value                                                                                | :octicons-diff-removed-16: |
 
 ---
 ### `SetColor`
