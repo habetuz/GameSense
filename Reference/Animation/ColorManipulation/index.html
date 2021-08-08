@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#colormanipulation" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -397,10 +402,108 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ColorManipulation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         ColorManipulation
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-static" class="md-nav__link">
+    public static
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#combine" class="md-nav__link">
+    Combine
+  </a>
+  
+    <nav class="md-nav" aria-label="Combine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -657,9 +760,70 @@
                   </a>
                 
                 
-                  <h1>ColorManipulation</h1>
+                <h1 id="colormanipulation">ColorManipulation<a class="headerlink" href="#colormanipulation" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/habetuz/GameSense/blob/main/Animation/ColorManipulation.cs"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a></p>
+<p><code class="highlight"><span class="k">namespace</span> <span class="nn">GameSense.Animation</span></code></p>
+<p><code class="highlight"><span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">ColorManipulation</span></code></p>
+<hr />
+<p>Helper class for combining and manipulating colors.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
+<h4 id="public-static"><code>public static</code><a class="headerlink" href="#public-static" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int[]</code></td>
+<td><a href="#combine"><code>Combine</code></a><code>(int[] bottom, int[] top, int transparency)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">&para;</a></h2>
+<h3 id="combine"><code>Combine</code><a class="headerlink" href="#combine" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/habetuz/GameSense/blob/main/Animation/ColorManipulation.cs#L34-L44"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a></p>
+<p><code class="highlight"><span class="k">public</span> <span class="k">static</span> <span class="kt">int</span><span class="p">[]</span> <span class="nf">Combine</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">bottom</span><span class="p">,</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">top</span><span class="p">,</span> <span class="kt">int</span> <span class="n">transparency</span><span class="p">)</span></code></p>
+<p>Combines one bottom color with a translucent top color.</p>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
+<p>The combined color.</p>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int[]</code></td>
+<td><code>bottom</code></td>
+<td>The bottom color (RGB format)</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 0 1 .25.25v10.5a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25V2.75a.25.25 0 0 1 .25-.25zM13.25 1H2.75A1.75 1.75 0 0 0 1 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 15 13.25V2.75A1.75 1.75 0 0 0 13.25 1zm-2 7.75a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5h6.5z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>int[]</code></td>
+<td><code>top</code></td>
+<td>The top color (RGB format)</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 0 1 .25.25v10.5a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25V2.75a.25.25 0 0 1 .25-.25zM13.25 1H2.75A1.75 1.75 0 0 0 1 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 15 13.25V2.75A1.75 1.75 0 0 0 13.25 1zm-2 7.75a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5h6.5z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>transparency</code></td>
+<td>The transparency of the top color (<code>0-100</code>)</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 0 1 .25.25v10.5a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25V2.75a.25.25 0 0 1 .25-.25zM13.25 1H2.75A1.75 1.75 0 0 0 1 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 15 13.25V2.75A1.75 1.75 0 0 0 13.25 1zm-2 7.75a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5h6.5z"/></svg></span></td>
+</tr>
+</tbody>
+</table>
+<hr />
                 
-                
+                  
                 
               
               

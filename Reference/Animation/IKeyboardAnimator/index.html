@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#ikeyboardanimator" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -421,10 +426,95 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          IKeyboardAnimator
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         IKeyboardAnimator
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#methods" class="md-nav__link">
+    Methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#methods_1" class="md-nav__link">
+    Methods
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nextframe" class="md-nav__link">
+    NextFrame
+  </a>
+  
+    <nav class="md-nav" aria-label="NextFrame">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#returns" class="md-nav__link">
+    Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -657,9 +747,58 @@
                   </a>
                 
                 
-                  <h1>IKeyboardAnimator</h1>
+                <h1 id="ikeyboardanimator">IKeyboardAnimator<a class="headerlink" href="#ikeyboardanimator" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/habetuz/GameSense/blob/main/Animation/IKeyboardAnimator.cs"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a></p>
+<p><code class="highlight"><span class="k">namespace</span> <span class="nn">GameSense.Animation</span></code></p>
+<p><code class="highlight"><span class="k">public</span> <span class="k">interface</span> <span class="n">IKeyboardAnimator</span></code></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 15-6 6-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"/></svg></span> <a href=""><code>IKeyboardAnimator</code></a></p>
+<hr />
+<p>Interface for keyboard animations.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../KeyboardFrame/"><code>KeyboardFrame</code></a></td>
+<td><a href="#nextframe"><code>NextFrame</code></a><code>(</code><a href="../../KeyboardFrame/"><code>KeyboardFrame</code></a> <code>bottomLayer)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="methods_1">Methods<a class="headerlink" href="#methods_1" title="Permanent link">&para;</a></h2>
+<h3 id="nextframe"><code>NextFrame</code><a class="headerlink" href="#nextframe" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/habetuz/GameSense/blob/main/Animation/IKeyboardAnimator.cs#L23"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a></p>
+<p><code class="highlight"><span class="n">KeyboardFrame</span> <span class="nf">NextFrame</span><span class="p">(</span><span class="n">KeyboardFrame</span> <span class="n">bottomLayer</span> <span class="p">=</span> <span class="k">null</span><span class="p">)</span></code></p>
+<p>Generates the next <a href="../../KeyboardFrame/"><code>KeyboardFrame</code></a> of the animation.</p>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
+<p>The next <a href="../../KeyboardFrame/"><code>KeyboardFrame</code></a>.</p>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../KeyboardFrame/"><code>KeyboardFrame</code></a></td>
+<td><code>bottomLayer</code></td>
+<td>The bottom <a href="../../KeyboardFrame/"><code>KeyboardFrame</code></a> the next frame will be added on.</td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
                 
-                
+                  
                 
               
               

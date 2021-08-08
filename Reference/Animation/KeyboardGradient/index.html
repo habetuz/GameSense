@@ -68,6 +68,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#keyboardgradient" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -469,10 +474,95 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          KeyboardGradient
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         KeyboardGradient
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#constructors" class="md-nav__link">
+    Constructors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-inherited-from-ikeyboardanimator" class="md-nav__link">
+    Methods inherited from IKeyboardAnimator
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constructors_1" class="md-nav__link">
+    Constructors
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keyboardgradient_1" class="md-nav__link">
+    KeyboardGradient
+  </a>
+  
+    <nav class="md-nav" aria-label="KeyboardGradient">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -657,9 +747,87 @@
                   </a>
                 
                 
-                  <h1>KeyboardGradient</h1>
+                <h1 id="keyboardgradient">KeyboardGradient<a class="headerlink" href="#keyboardgradient" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/habetuz/GameSense/blob/main/Animation/KeyboardGradient.cs"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a></p>
+<p><code class="highlight"><span class="k">namespace</span> <span class="nn">GameSense.Animation</span></code></p>
+<p><code class="highlight"><span class="k">public</span> <span class="k">class</span> <span class="nc">KeyboardGradient</span> <span class="p">:</span> <span class="n">IKeyboardAnimator</span></code></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 15-6 6-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"/></svg></span> <a href="../IKeyboardAnimator/"><code>IKeyboardAnimator</code></a></p>
+<p>&ensp;&ensp;&ensp;&ensp; <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 15-6 6-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"/></svg></span> <a href=""><code>KeyboardGradient</code></a></p>
+<hr />
+<p>An <a href="../IKeyboardAnimator/"><code>IKeyboardAnimator</code></a> that generates a gradient background effect. The gradient gets animated moving from right to left.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<h3 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Constructor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href=""><code>KeyboardGradient</code></a><code>(int[] color1, int[] color2, int time, int length)</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="methods-inherited-from-ikeyboardanimator">Methods inherited from <a href="../IKeyboardAnimator/"><code>IKeyboardAnimator</code></a><a class="headerlink" href="#methods-inherited-from-ikeyboardanimator" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Returns</th>
+<th>Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../KeyboardFrame/"><code>KeyboardFrame</code></a></td>
+<td><a href="../IKeyboardAnimator/#nextframe"><code>NextFrame</code></a><code>(</code><a href="../../KeyboardFrame/"><code>KeyboardFrame</code></a> <code>bottomLayer)</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="constructors_1">Constructors<a class="headerlink" href="#constructors_1" title="Permanent link">&para;</a></h2>
+<h3 id="keyboardgradient_1"><code>KeyboardGradient</code><a class="headerlink" href="#keyboardgradient_1" title="Permanent link">&para;</a></h3>
+<p><a href="https://github.com/habetuz/GameSense/blob/main/Animation/KeyboardGradient.cs#L42-L116"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a></p>
+<p><code class="highlight"><span class="k">public</span> <span class="nf">KeyboardGradient</span><span class="p">(</span><span class="kt">int</span><span class="p">[]</span> <span class="n">color1</span><span class="p">,</span> <span class="kt">int</span><span class="p">[]</span> <span class="n">color2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">time</span> <span class="p">=</span> <span class="m">1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">length</span> <span class="p">=</span> <span class="m">1</span><span class="p">)</span></code></p>
+<p>Initializes a new instance of the class.</p>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int[]</code></td>
+<td><code>color1</code></td>
+<td>The left color of the gradient (RGB format)</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 0 1 .25.25v10.5a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25V2.75a.25.25 0 0 1 .25-.25zM13.25 1H2.75A1.75 1.75 0 0 0 1 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 15 13.25V2.75A1.75 1.75 0 0 0 13.25 1zm-2 7.75a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5h6.5z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>int[]</code></td>
+<td><code>color2</code></td>
+<td>The right color of the gradient (RGB format)</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 0 1 .25.25v10.5a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25V2.75a.25.25 0 0 1 .25-.25zM13.25 1H2.75A1.75 1.75 0 0 0 1 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 15 13.25V2.75A1.75 1.75 0 0 0 13.25 1zm-2 7.75a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5h6.5z"/></svg></span></td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>time</code></td>
+<td>The speed of the animation. The speed is dependent on the <a href="../../Controller/#framelength"><code>Controller.FrameLength</code></a>. It needs <code>22</code> · <code>time</code> <a href="../IKeyboardAnimator/#nextframe"><code>NextFrame()</code></a> calls for one full animation cycle.</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>int</code></td>
+<td><code>length</code></td>
+<td>How long the gradient is compared to the keyboard. The gradient is <code>keyboard</code> · <code>length</code> long.</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
                 
-                
+                  
                 
               
               

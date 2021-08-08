@@ -876,6 +876,7 @@
 <p><a href="https://github.com/habetuz/GameSense/blob/main/KeyboardFrame.cs"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a></p>
 <p><code class="highlight"><span class="k">namespace</span> <span class="nn">GameSense</span></code></p>
 <p><code class="highlight"><span class="k">public</span> <span class="k">class</span> <span class="nc">KeyboardFrame</span></code></p>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m19 15-6 6-1.42-1.42L15.17 16H4V4h2v10h9.17l-3.59-3.58L13 9l6 6z"/></svg></span> <a href=""><code>KeyboardFrame</code></a></p>
 <hr />
 <p>A class that contains a color bitmap for a full keyboard effect. See the <a href="https://github.com/SteelSeries/gamesense-sdk/blob/master/doc/api/json-handlers-full-keyboard-lighting.md">GameSense SDK docs</a> for more information on full keyboard effects.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
@@ -888,7 +889,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href=""><code>KeyboardFrame</code></a><code>()</code></td>
+<td><a href="#keyboardframe_1"><code>KeyboardFrame</code></a><code>()</code></td>
 </tr>
 </tbody>
 </table>
@@ -944,7 +945,7 @@
 <hr />
 <h2 id="properties_1">Properties<a class="headerlink" href="#properties_1" title="Permanent link">&para;</a></h2>
 <h3 id="bitmap"><code>Bitmap</code><a class="headerlink" href="#bitmap" title="Permanent link">&para;</a></h3>
-<p><a href="https://github.com/habetuz/GameSense/blob/main/KeyboardFrame.cs#L34"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11 12H3.5L6 9.5 3.5 7H11V3l1-1 1 1v4h5l2.5 2.5L18 12h-5v8a2 2 0 0 1 2 2H9a2 2 0 0 1 2-2v-8z"/></svg></span> Default: A 132 by 3 int array filled with zeros.</p>
+<p><a href="https://github.com/habetuz/GameSense/blob/main/KeyboardFrame.cs#L34"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4c0-1.11.89-2 2-2m.12 13.5 3.74 3.74 1.42-1.41-2.33-2.33 2.33-2.33-1.42-1.41-3.74 3.74m11.16 0-3.74-3.74-1.42 1.41 2.33 2.33-2.33 2.33 1.42 1.41 3.74-3.74z"/></svg></span> Source</a> · <span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M7.75 0a.75.75 0 0 1 .75.75V3h3.634c.414 0 .814.147 1.13.414l2.07 1.75a1.75 1.75 0 0 1 0 2.672l-2.07 1.75a1.75 1.75 0 0 1-1.13.414H8.5v5.25a.75.75 0 1 1-1.5 0V10H2.75A1.75 1.75 0 0 1 1 8.25v-3.5C1 3.784 1.784 3 2.75 3H7V.75A.75.75 0 0 1 7.75 0zm0 8.5h4.384a.25.25 0 0 0 .161-.06l2.07-1.75a.25.25 0 0 0 0-.38l-2.07-1.75a.25.25 0 0 0-.161-.06H2.75a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h5z"/></svg></span> Default: A 132 by 3 int array filled with zeros.</p>
 <p><code class="highlight"><span class="k">public</span> <span class="kt">int</span><span class="p">[][]</span> <span class="n">Bitmap</span> <span class="p">{</span><span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;}</span></code></p>
 <p>Gets or sets the color bitmap. This bitmap is used by the GameSense Engine to map a 22x6 grid to the keys of the keyboard.</p>
 <hr />
@@ -970,25 +971,25 @@
 <td><code>int</code></td>
 <td><code>index</code></td>
 <td>The index of the <a href="#bitmap"><code>Bitmap</code></a> or a <a href="/Reference/Key/"><code>Key</code></a> to set the color of a specific key</td>
-<td>-</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 0 1 .25.25v10.5a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25V2.75a.25.25 0 0 1 .25-.25zM13.25 1H2.75A1.75 1.75 0 0 0 1 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 15 13.25V2.75A1.75 1.75 0 0 0 13.25 1zm-2 7.75a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5h6.5z"/></svg></span></td>
 </tr>
 <tr>
 <td><code>int</code></td>
 <td><code>r</code></td>
 <td>The red channel value</td>
-<td>-</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 0 1 .25.25v10.5a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25V2.75a.25.25 0 0 1 .25-.25zM13.25 1H2.75A1.75 1.75 0 0 0 1 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 15 13.25V2.75A1.75 1.75 0 0 0 13.25 1zm-2 7.75a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5h6.5z"/></svg></span></td>
 </tr>
 <tr>
 <td><code>int</code></td>
 <td><code>g</code></td>
 <td>The green channel value</td>
-<td>-</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 0 1 .25.25v10.5a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25V2.75a.25.25 0 0 1 .25-.25zM13.25 1H2.75A1.75 1.75 0 0 0 1 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 15 13.25V2.75A1.75 1.75 0 0 0 13.25 1zm-2 7.75a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5h6.5z"/></svg></span></td>
 </tr>
 <tr>
 <td><code>int</code></td>
 <td><code>b</code></td>
 <td>The blue channel value</td>
-<td>-</td>
+<td><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.75 2.5h10.5a.25.25 0 0 1 .25.25v10.5a.25.25 0 0 1-.25.25H2.75a.25.25 0 0 1-.25-.25V2.75a.25.25 0 0 1 .25-.25zM13.25 1H2.75A1.75 1.75 0 0 0 1 2.75v10.5c0 .966.784 1.75 1.75 1.75h10.5A1.75 1.75 0 0 0 15 13.25V2.75A1.75 1.75 0 0 0 13.25 1zm-2 7.75a.75.75 0 0 0 0-1.5h-6.5a.75.75 0 0 0 0 1.5h6.5z"/></svg></span></td>
 </tr>
 </tbody>
 </table>
