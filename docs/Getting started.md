@@ -33,9 +33,59 @@ GameSense.Controller.GameDisplayName = "Test";
 GameSense.Controller.Developer = "John Doe";
 ```
 
-### Activating a keyboard background
+---
+### Background animations for keyboards
+Set the [`KeyboardBackground`](Controller.md#keyboardbackground) property. 
+You can either use the [`KeyboardGradient`](KeyboardGradient.md) [`IKeyboardAnimator`](IKeyboardAnimator.md) or create you own [`IKeyboardAnimator`](IKeyboardAnimator.md).
+
+```c#
+GameSense.Controller.KeyboardBackground = new KeyboardGradient (
+    new int[] { 255,  85,   0 }, 
+    new int[] {   0, 196, 255 }, 
+    4, 
+    2
+);
+```
+
+---
+### Background animations for mice
+:material-alert: Not Implemented! Coming soon.
+
+---
+### Background animations for mousepads
+:material-alert: Not Implemented! Coming soon.
+
+---
+### Animated key strokes
+Set the [`DefaultKeyAnimation`](Controller.md#defaultkeyanimation) property. 
+You can either use the [`KeyFade`](KeyFade.md) [`IKeyAnimator`](IKeyAnimator.md) or create you own [`IKeyAnimator`](IKeyboardAnimator.md).
+
+```c#
+GameSense.Controller.DefaultKeyAnimation = new KeyFade();
+```
+
+???+ warning
+    This program uses the [`globalmousekeyhook`](https://github.com/gmamaladze/globalmousekeyhook) library to register key strokes.
+    In order to not block the program you need to run a new application context after your setup when animating key strokes.
+    
+    Your program could look something like this:
+
+    ```c#
+    GameSense.Controller.GameName = "TEST";
+    GameSense.Controller.GameDisplayName = "Test";
+    GameSense.Controller.Developer = "John Doe";
+
+    GameSense.Controller.DefaultKeyAnimation = new KeyFade();
+
+    System.Windows.Forms.Application.Run(new ApplicationContext()); // Important!
+
+    GameSense.Controller.Stop();
+    System.Windows.Forms.Application.Exit()
+    ```
 
 
+
+---
 ### Sending requests manually
 
 To send a request to the GameSense Engine create a [`BaseRequest`]() and send it using the [`Transmitter`]().
@@ -49,3 +99,5 @@ GameSense.Struct.Request.BaseRequest request = new GameSense.Struct.BaseRequest
 };
 GameSense.Transmitter.Send(request, "game_heartbeat");
 ```
+
+---
