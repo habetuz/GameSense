@@ -330,8 +330,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#activating-a-keyboard-background" class="md-nav__link">
-    Activating a keyboard background
+  <a href="#background-animations-for-keyboards" class="md-nav__link">
+    Background animations for keyboards
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-animations-for-mice" class="md-nav__link">
+    Background animations for mice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#background-animations-for-mousepads" class="md-nav__link">
+    Background animations for mousepads
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#animated-key-strokes" class="md-nav__link">
+    Animated key strokes
   </a>
   
 </li>
@@ -742,7 +763,45 @@ Note that <code>GameName</code> is limited to uppercase A-Z, 0-9, hyphen, and un
 <span class="n">GameSense</span><span class="p">.</span><span class="n">Controller</span><span class="p">.</span><span class="n">GameDisplayName</span> <span class="p">=</span> <span class="s">&quot;Test&quot;</span><span class="p">;</span>
 <span class="n">GameSense</span><span class="p">.</span><span class="n">Controller</span><span class="p">.</span><span class="n">Developer</span> <span class="p">=</span> <span class="s">&quot;John Doe&quot;</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="activating-a-keyboard-background">Activating a keyboard background<a class="headerlink" href="#activating-a-keyboard-background" title="Permanent link">&para;</a></h3>
+<hr />
+<h3 id="background-animations-for-keyboards">Background animations for keyboards<a class="headerlink" href="#background-animations-for-keyboards" title="Permanent link">&para;</a></h3>
+<p>Set the <a href="../Reference/Controller/#keyboardbackground"><code>KeyboardBackground</code></a> property. 
+You can either use the <a href="../Reference/Animation/KeyboardGradient/"><code>KeyboardGradient</code></a> <a href="../Reference/Animation/IKeyboardAnimator/"><code>IKeyboardAnimator</code></a> or create you own <a href="../Reference/Animation/IKeyboardAnimator/"><code>IKeyboardAnimator</code></a>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">GameSense</span><span class="p">.</span><span class="n">Controller</span><span class="p">.</span><span class="n">KeyboardBackground</span> <span class="p">=</span> <span class="k">new</span> <span class="n">KeyboardGradient</span> <span class="p">(</span>
+    <span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span> <span class="m">255</span><span class="p">,</span>  <span class="m">85</span><span class="p">,</span>   <span class="m">0</span> <span class="p">},</span> 
+    <span class="k">new</span> <span class="kt">int</span><span class="p">[]</span> <span class="p">{</span>   <span class="m">0</span><span class="p">,</span> <span class="m">196</span><span class="p">,</span> <span class="m">255</span> <span class="p">},</span> 
+    <span class="m">4</span><span class="p">,</span> 
+    <span class="m">2</span>
+<span class="p">);</span>
+</code></pre></div>
+<hr />
+<h3 id="background-animations-for-mice">Background animations for mice<a class="headerlink" href="#background-animations-for-mice" title="Permanent link">&para;</a></h3>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2 1 21z"/></svg></span> Not Implemented! Coming soon.</p>
+<hr />
+<h3 id="background-animations-for-mousepads">Background animations for mousepads<a class="headerlink" href="#background-animations-for-mousepads" title="Permanent link">&para;</a></h3>
+<p><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2 1 21z"/></svg></span> Not Implemented! Coming soon.</p>
+<hr />
+<h3 id="animated-key-strokes">Animated key strokes<a class="headerlink" href="#animated-key-strokes" title="Permanent link">&para;</a></h3>
+<p>Set the <a href="../Reference/Controller/#defaultkeyanimation"><code>DefaultKeyAnimation</code></a> property. 
+You can either use the <a href="../Reference/Animation/KeyFade/"><code>KeyFade</code></a> <a href="../Reference/Animation/IKeyAnimator/"><code>IKeyAnimator</code></a> or create you own <a href="../Reference/Animation/IKeyboardAnimator/"><code>IKeyAnimator</code></a>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">GameSense</span><span class="p">.</span><span class="n">Controller</span><span class="p">.</span><span class="n">DefaultKeyAnimation</span> <span class="p">=</span> <span class="k">new</span> <span class="n">KeyFade</span><span class="p">();</span>
+</code></pre></div>
+<details class="warning" open="open"><summary>Warning</summary><p>This program uses the <a href="https://github.com/gmamaladze/globalmousekeyhook"><code>globalmousekeyhook</code></a> library to register key strokes.
+In order to not block the program you need to run a new application context after your setup when animating key strokes.</p>
+<p>Your program could look something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="n">GameSense</span><span class="p">.</span><span class="n">Controller</span><span class="p">.</span><span class="n">GameName</span> <span class="p">=</span> <span class="s">&quot;TEST&quot;</span><span class="p">;</span>
+<span class="n">GameSense</span><span class="p">.</span><span class="n">Controller</span><span class="p">.</span><span class="n">GameDisplayName</span> <span class="p">=</span> <span class="s">&quot;Test&quot;</span><span class="p">;</span>
+<span class="n">GameSense</span><span class="p">.</span><span class="n">Controller</span><span class="p">.</span><span class="n">Developer</span> <span class="p">=</span> <span class="s">&quot;John Doe&quot;</span><span class="p">;</span>
+
+<span class="n">GameSense</span><span class="p">.</span><span class="n">Controller</span><span class="p">.</span><span class="n">DefaultKeyAnimation</span> <span class="p">=</span> <span class="k">new</span> <span class="n">KeyFade</span><span class="p">();</span>
+
+<span class="n">System</span><span class="p">.</span><span class="n">Windows</span><span class="p">.</span><span class="n">Forms</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="n">Run</span><span class="p">(</span><span class="k">new</span> <span class="n">ApplicationContext</span><span class="p">());</span> <span class="c1">// Important!</span>
+
+<span class="n">GameSense</span><span class="p">.</span><span class="n">Controller</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
+<span class="n">System</span><span class="p">.</span><span class="n">Windows</span><span class="p">.</span><span class="n">Forms</span><span class="p">.</span><span class="n">Application</span><span class="p">.</span><span class="n">Exit</span><span class="p">()</span>
+</code></pre></div>
+</details>
+<hr />
 <h3 id="sending-requests-manually">Sending requests manually<a class="headerlink" href="#sending-requests-manually" title="Permanent link">&para;</a></h3>
 <p>To send a request to the GameSense Engine create a <a href=""><code>BaseRequest</code></a> and send it using the <a href=""><code>Transmitter</code></a>.</p>
 <p>See the <a href="https://github.com/SteelSeries/gamesense-sdk">GameSense SDK docs</a> for more information on requests.</p>
@@ -752,6 +811,7 @@ Note that <code>GameName</code> is limited to uppercase A-Z, 0-9, hyphen, and un
 <span class="p">};</span>
 <span class="n">GameSense</span><span class="p">.</span><span class="n">Transmitter</span><span class="p">.</span><span class="n">Send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s">&quot;game_heartbeat&quot;</span><span class="p">);</span>
 </code></pre></div>
+<hr />
                 
                   
                 
