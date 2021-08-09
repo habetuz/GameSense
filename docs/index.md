@@ -10,7 +10,7 @@ With GameSense you are able to control the LED's of your keyboard and and other 
 
 [Installation](/Getting started/#installation) and [usage](/Getting started/#usage) under [Getting started](/Getting started/).
 
-Full documentation under Reference.
+Full documentation under [Reference](Controller.md).
 
 Check out the [GameSense SDK](https://github.com/SteelSeries/gamesense-sdk) by SteelSeries.
 
