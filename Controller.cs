@@ -16,6 +16,7 @@ namespace GameSense
     using GameSense.Animation;
     using GameSense.Struct.Request;
     using SharpLog;
+    using SharpLog.Output;
 
     /// <summary>
     /// Controls communication with the game sense API and the animation cycle. It starts automatically when <see cref="GradientColor1"/>, <see cref="GradientColor2"/>, <see cref="GameName"/>, <see cref="GameDisplayName"/> and <see cref="Developer"/> are set.
@@ -37,6 +38,8 @@ namespace GameSense
         private const string EndpointRegisterEvent  = "register_game_event";
         private const string EndpointGameEvent      = "multiple_game_events";
 
+        public const string LogFile = "GameSense.log";
+
         private static readonly Timer UpdateTimer = new Timer(50);
 
         private static readonly Logger Logger = new Logger
@@ -57,7 +60,7 @@ namespace GameSense
             {
                 KeyboardFrameManager.Background = value;
                 UpdateTimer.Enabled = true;
-                Logger.Log("Keyboard background set.", LoggerType.Info);
+                Logger.Log("Keyboard background set.", LogType.Info);
             }
         }
 
@@ -78,7 +81,7 @@ namespace GameSense
             {
                 MouseFrameManager.Animator = value;
                 UpdateTimer.Enabled = true;
-                Logger.Log("Mouse background set.", LoggerType.Info);
+                Logger.Log("Mouse background set.", LogType.Info);
             }
         }
 
@@ -89,7 +92,7 @@ namespace GameSense
         {
             set
             {
-                Logger.Log("Name set: " + value, LoggerType.Info);
+                Logger.Log("Name set: " + value, LogType.Info);
                 gameName = value;
                 if (ReadyForInitialization())
                 {
@@ -105,7 +108,7 @@ namespace GameSense
         {
             set
             {
-                Logger.Log("Display name set: " + value, LoggerType.Info);
+                Logger.Log("Display name set: " + value, LogType.Info);
                 gameDisplayName = value;
                 if (ReadyForInitialization())
                 {
@@ -121,7 +124,7 @@ namespace GameSense
         {
             set
             {
-                Logger.Log("Developer set: " + value, LoggerType.Info);
+                Logger.Log("Developer set: " + value, LogType.Info);
                 developer = value;
                 if (ReadyForInitialization())
                 {
@@ -135,14 +138,14 @@ namespace GameSense
         /// </summary>
         private static void Start()
         {
-            Logger.Log("Starting...", LoggerType.Info);
+            Logger.Log("Starting...", LogType.Info);
 
             RegisterGame();
             StartHeartbeat();
             BindEvents();
             StartUpdate();
 
-            Logger.Log("Ready!", LoggerType.Info);
+            Logger.Log("Ready!", LogType.Info);
         }
 
         /// <summary>
@@ -163,7 +166,7 @@ namespace GameSense
 
         private static void RegisterGame()
         {
-            Logger.Log("Registering game...", LoggerType.Info);
+            Logger.Log("Registering game...", LogType.Info);
             Transmitter.Send(
                 new BaseRequest
                 {
@@ -176,7 +179,7 @@ namespace GameSense
 
         private static void BindEvents()
         {
-            Logger.Log("Binding events...", LoggerType.Info);
+            Logger.Log("Binding events...", LogType.Info);
             BindKeyboardEvent();
             BindMouseEvents();
             
@@ -201,7 +204,7 @@ namespace GameSense
                     }
                 },
                 EndpointBindEvent);
-            Logger.Log("Keyboard event binned!", LoggerType.Info);
+            Logger.Log("Keyboard event binned!", LogType.Info);
         }
 
         private static void BindMouseEvents()
@@ -294,7 +297,7 @@ namespace GameSense
                 },
                 EndpointRegisterEvent);
 
-            Logger.Log("Mouse events binned!", LoggerType.Info);
+            Logger.Log("Mouse events binned!", LogType.Info);
         }
 
         private static void StartHeartbeat()
@@ -303,25 +306,25 @@ namespace GameSense
             timer.Elapsed += Heartbeat;
             timer.AutoReset = true;
             timer.Enabled = true;
-            Logger.Log("Heartbeat started.", LoggerType.Info);
+            Logger.Log("Heartbeat started.", LogType.Info);
         }
 
         private static void StartUpdate()
         {
             UpdateTimer.Elapsed += Update;
             UpdateTimer.AutoReset = true;
-            Logger.Log("UpdateTimer ready.", LoggerType.Info);
+            Logger.Log("UpdateTimer ready.", LogType.Info);
         }
 
         private static void Heartbeat(object source, System.Timers.ElapsedEventArgs e)
         {
-            ////Logger.Log("Heartbeat...", LoggerType.Info);
+            ////Logger.Log("Heartbeat...", LogType.Info);
             Transmitter.Send(new BaseRequest { Game = gameName }, "game_heartbeat");
         }
 
         private static void Update(object source, System.Timers.ElapsedEventArgs e)
         {
-            Logger.Log("Keyboard-Effect...", LoggerType.Debug);
+            Logger.Log("Keyboard-Effect...", LogType.Debug);
 
             List<EventBinder> events = new List<EventBinder>();
 

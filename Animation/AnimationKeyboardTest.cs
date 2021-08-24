@@ -40,7 +40,7 @@ namespace GameSense.Animation
                 this.pos = 0;
             }
 
-            Logger.Log("Key:" + ((Key)this.pos).ToString() + " | Value: " + this.pos, LoggerType.Info);
+            Logger.Log("Key:" + ((Key)this.pos).ToString() + " | Value: " + this.pos, LogType.Info);
             return this.frames[this.pos];
         }
     }

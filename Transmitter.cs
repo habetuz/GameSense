@@ -14,6 +14,7 @@ namespace GameSense
     using GameSense.Struct.Request;
     using SharpLog;
     using System;
+    using System.Collections.Generic;
     using System.Net.Http;
     using System.Text;
     using System.Text.Json;
@@ -42,7 +43,7 @@ namespace GameSense
 
         static Transmitter()
         {
-            Logger.Log("Starting...", LoggerType.Info, true);
+            Logger.Log("Starting...", LogType.Info, true);
             try
             {
                 string file = System.IO.File.ReadAllText("C:/ProgramData/SteelSeries/SteelSeries Engine 3/coreProps.json");
@@ -53,18 +54,18 @@ namespace GameSense
                         PropertyNameCaseInsensitive = true
                     });
                 Adress = coreProps.Address;
-                Logger.Log("GameSense server is running on " + Adress, LoggerType.Info, true);
-                Logger.Log("Ready!", LoggerType.Info, true);
+                Logger.Log("GameSense server is running on " + Adress, LogType.Info, true);
+                Logger.Log("Ready!", LogType.Info, true);
             }
             catch (Exception ex)
             {
                 if (ex is System.IO.DirectoryNotFoundException || ex is System.IO.FileNotFoundException)
                 {
-                    Logger.Log("coreProps.json could not be found. Maybe the SteelSeries Engine is not running.", LoggerType.Error);
+                    Logger.Log("coreProps.json could not be found. Maybe the SteelSeries Engine is not running.", LogType.Error);
                 }
                 else
                 {
-                    Logger.Log("coreProps.json cannot be deserialized", LoggerType.Error);
+                    Logger.Log("coreProps.json cannot be deserialized", LogType.Error);
                 }
 
                 throw ex;
@@ -100,16 +101,16 @@ namespace GameSense
 
                 if (response.IsSuccessStatusCode)
                 {
-                    Logger.Log("/" + endpoint, LoggerType.Info);
+                    Logger.Log("/" + endpoint, LogType.Info);
                 }
                 else
                 {
-                    Logger.Log("BaseRequest to endpoint '" + endpoint + "' failed! Status: " + response.StatusCode + " | Content: " + await response.Content.ReadAsStringAsync(), LoggerType.Warning);
+                    Logger.Log("BaseRequest to endpoint '" + endpoint + "' failed! Status: " + response.StatusCode + " | Content: " + await response.Content.ReadAsStringAsync(), LogType.Warning);
                 }
             }
             catch (Exception ex)
             {
-                //Logger.Log("BaseRequest to endpoint '" + endpoint + "' failed!\n" + ex.ToString(), LoggerType.Error);
+                //Logger.Log("BaseRequest to endpoint '" + endpoint + "' failed!\n" + ex.ToString(), LogType.Error);
                 //throw ex;
             }
         }

@@ -61,6 +61,7 @@
     <Compile Include="GSJsonNamingPolicy.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="Key.cs" />
+    <Compile Include="KeyboardFrame.cs" />
     <Compile Include="KeyboardFrameManager.cs" />
     <Compile Include="MouseFrameManager.cs" />
     <Compile Include="MouseZone.cs" />
@@ -71,8 +72,8 @@
     <Compile Include="Struct\Request\ColorHandler.cs" />
     <Compile Include="Struct\Request\ColorHandlerGradient.cs" />
     <Compile Include="Struct\Request\EventBinder.cs" />
+    <Compile Include="Struct\Request\EventData.cs" />
     <Compile Include="Struct\Request\Handler.cs" />
-    <Compile Include="Struct\Request\RequestData.cs" />
     <Compile Include="Transmitter.cs" />
   </ItemGroup>
   <ItemGroup>

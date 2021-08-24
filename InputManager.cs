@@ -32,10 +32,10 @@ namespace GameSense
 
         static InputManager()
         {
-            Logger.Log("Starting...", LoggerType.Info, true);
+            Logger.Log("Starting...", LogType.Info, true);
             GlobalHook.KeyDown += KeyEvent;
             GlobalHook.MouseDownExt += MouseEvent;
-            Logger.Log("Ready!", LoggerType.Info, true);
+            Logger.Log("Ready!", LogType.Info, true);
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace GameSense
         {
             try
             {
-                Logger.Log(((Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString())).ToString(), LoggerType.Info);
+                Logger.Log(((Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString())).ToString(), LogType.Info);
                 Logger.Log(((Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString())).ToString());
                 IKeyAnimator animation = DefaultKeyAnimation.Copy();
                 animation.Key = (Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString());
@@ -73,13 +73,13 @@ namespace GameSense
             }
             catch (ArgumentException)
             {
-                Logger.Log("Key " + eventArgs.KeyCode.ToString() + " does not exist", LoggerType.Warning);
+                Logger.Log("Key " + eventArgs.KeyCode.ToString() + " does not exist", LogType.Warning);
             }
         }
 
         private static void MouseEvent(object sender, MouseEventArgs eventArgs)
         {
-            Logger.Log(eventArgs.Button.ToString(), LoggerType.Info);
+            Logger.Log(eventArgs.Button.ToString(), LogType.Info);
         }
     }
 }

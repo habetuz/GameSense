@@ -23,7 +23,7 @@
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>
     <dependencies>
-      <dependency id="MarvinFuchs.SharpLog" version="1.0.0"/>
+      <dependency id="MarvinFuchs.SharpLog" version="2.2.0"/>
       <dependency id="MouseKeyHook" version="5.6.0"/>
     </dependencies>
   </metadata>
