@@ -33,19 +33,19 @@ An [`IKeyAnimator`](IKeyAnimator.md) that animates a fading color for keys.
 | `int`   | [`FadeDuration`](#fadeduration) |                  | :material-check: |
 | `int[]` | [`Color`](#color)               |                  | :material-check: |
 
-### Properties inherited from [`IKeyAnimator`](IKeyboardAnimator.md)
+### Inherited properties from [`IKeyAnimator`](IKeyboardAnimator.md)
 | Type            | Property                               | Get              | Set              |
 | --------------- | -------------------------------------- | ---------------- | ---------------- | 
 | `bool`          | [`Finished`](IKeyAnimator.md#finished) | :material-check: |                  | 
 | [`Key`](Key.md) | [`Key`](IKeyAnimator.md#key)           | :material-check: | :material-check: | 
 
 
-### Methods inherited from [`IKeyAnimator`](IKeyboardAnimator.md)
+### Implemented methods from [`IKeyAnimator`](IKeyboardAnimator.md)
 | Returns                             | Method                             |
 | ----------------------------------- | ---------------------------------- |
 | [`IKeyAnimator`](IKeyAnimator.md)   | [`Copy`](IKeyAnimator.md#copy)`()` |
 
-### Methods inherited from [`IKeyboardAnimator`](IKeyboardAnimator.md)
+### Implemented methods from [`IKeyboardAnimator`](IKeyboardAnimator.md)
 | Returns                             | Method                                                                                             |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [`KeyboardFrame`](KeyboardFrame.md) | [`NextFrame`](IKeyboardAnimator.md#nextframe)`(`[`KeyboardFrame`](KeyboardFrame.md) `bottomLayer)` |

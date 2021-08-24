@@ -24,7 +24,7 @@ An [`IKeyboardAnimator`](IKeyboardAnimator.md) that generates a gradient backgro
 | -------------------------------------------------------------------------- |
 | [`KeyboardGradient`]()`(int[] color1, int[] color2, int time, int length)` |
 
-### Methods inherited from [`IKeyboardAnimator`](IKeyboardAnimator.md)
+### Implemented methods from [`IKeyboardAnimator`](IKeyboardAnimator.md)
 | Returns                             | Method                                                                                             |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------- |
 | [`KeyboardFrame`](KeyboardFrame.md) | [`NextFrame`](IKeyboardAnimator.md#nextframe)`(`[`KeyboardFrame`](KeyboardFrame.md) `bottomLayer)` |
