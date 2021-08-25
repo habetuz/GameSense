@@ -10,7 +10,9 @@
 
 namespace GameSense.Animation
 {
+    using System.Collections.Generic;
     using SharpLog;
+    using SharpLog.Output;
 
     /// <summary>
     /// An <see cref="IKeyAnimator"/> that animates a fading color for keys
@@ -20,7 +22,8 @@ namespace GameSense.Animation
         private static readonly Logger Logger = new Logger()
         {
             Ident = "KeyFade",
-            LogDebug = false
+            LogDebug = false,
+            Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         private int fadeDuration = 60;

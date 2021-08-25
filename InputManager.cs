@@ -11,10 +11,12 @@
 namespace GameSense
 {
     using System;
+    using System.Collections.Generic;
     using System.Windows.Forms;
     using GameSense.Animation;
     using Gma.System.MouseKeyHook;
     using SharpLog;
+    using SharpLog.Output;
 
     /// <summary>
     /// Class responsible for managing keyboard and mouse inputs.
@@ -23,11 +25,12 @@ namespace GameSense
     {
         private static readonly IKeyboardMouseEvents GlobalHook = Hook.GlobalEvents();
 
-        private static readonly MassLogger Logger = new MassLogger(300000)
+        private static readonly MassLogger Logger = new MassLogger(30 * 60000)
         {
             Ident = "GameSense/InputManager",
             LogDebug = false,
-            InfoLogText = "Inputs"
+            InfoLogText = "Inputs",
+            Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         static InputManager()

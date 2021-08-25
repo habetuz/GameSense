@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>GameSense</id>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <title>GameSense</title>
     <authors>Marvin Fuchs</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,18 +12,16 @@
     <description>GameSense API to controll SteelSeries products.</description>
     <releaseNotes>
       Change:
-      ~ Rename class GameSense.Frame to GameSense.KeyboardFrame
-      ~ Rename class GameSense.Struct.Request.RequestData to GameSense.Struct.Request.EventData 
-      ~ Rename property GameSense.Controller.MouseAnimation to GameSense.Controller.MouseBackground
-      ~ Rename property GameSense.Controller.Background to GameSense.Controller.KeyboardBackground
-      ~ Rename method GameSense.Animation.IKeyAnimator.Create to GameSense.Animation.IKeyAnimator.Copy
-      ~ Make method GameSense.Controller.Start() private
-      ~ Make classes that don't need to be public protected
+      ~ The `Transmitter` now automatically tries to reconnect when it cannot reach SteelSeries Engine.
+      ~ Warning and error logs now get written to the file `GameSense.log`.
+
+      Add:
+      + The possibility to specify a `Transmitter.Send()` call as important. When the `Transmitter` loses connection important request will get send on reconnection.
     </releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>
     <dependencies>
-      <dependency id="MarvinFuchs.SharpLog" version="2.2.0"/>
+      <dependency id="MarvinFuchs.SharpLog" version="2.3.0"/>
       <dependency id="MouseKeyHook" version="5.6.0"/>
     </dependencies>
   </metadata>

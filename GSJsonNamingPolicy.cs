@@ -13,6 +13,7 @@ namespace GameSense
     using System.Collections.Generic;
     using System.Text.Json;
     using SharpLog;
+    using SharpLog.Output;
 
     /// <summary>
     /// A <see cref="System.Text.Json.JsonNamingPolicy"/> for the game sense API.
@@ -33,7 +34,8 @@ namespace GameSense
         private static readonly Logger Logger = new Logger
         {
             Ident = "GameSense/GSJsonNamingPolicy",
-            LogDebug = false
+            LogDebug = false,
+            Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         /// <summary>

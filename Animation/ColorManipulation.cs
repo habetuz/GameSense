@@ -11,7 +11,9 @@
 namespace GameSense.Animation
 {
     using System;
+    using System.Collections.Generic;
     using SharpLog;
+    using SharpLog.Output;
 
     /// <summary>
     /// Helper class for combining and manipulating colors.
@@ -21,7 +23,8 @@ namespace GameSense.Animation
         private static readonly Logger Logger = new Logger()
         {
             Ident = "ColorManipulation",
-            LogDebug = true
+            LogDebug = true,
+            Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         /// <summary>

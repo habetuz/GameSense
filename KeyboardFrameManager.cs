@@ -13,6 +13,7 @@ namespace GameSense
     using System.Collections.Generic;
     using GameSense.Animation;
     using SharpLog;
+    using SharpLog.Output;
 
     /// <summary>
     /// Keeps track of all <see cref="GameSense.Animation.IAnimator"/> and combines the <see cref="GameSense.Struct.Frame"/>s from <see cref="GameSense.Animation.IAnimator.NextFrame(Struct.Frame)"/> to one final <see cref="GameSense.Struct.Frame"/>
@@ -22,7 +23,8 @@ namespace GameSense
         private static readonly Logger Logger = new Logger()
         {
             Ident = "KeyboardFrameManager",
-            LogDebug = false
+            LogDebug = false,
+            Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         private static readonly List<IKeyAnimator> PressedKeys = new List<IKeyAnimator>();

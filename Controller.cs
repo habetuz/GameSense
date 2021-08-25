@@ -38,13 +38,14 @@ namespace GameSense
         private const string EndpointRegisterEvent  = "register_game_event";
         private const string EndpointGameEvent      = "multiple_game_events";
 
-        public const string LogFile = "GameSense.log";
+        internal const string LogFile = "GameSense.log";
 
         private static readonly Timer UpdateTimer = new Timer(50);
 
         private static readonly Logger Logger = new Logger
         {
             Ident = "GameSense/Controller",
+            Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         private static string gameName;
@@ -319,7 +320,7 @@ namespace GameSense
         private static void Heartbeat(object source, System.Timers.ElapsedEventArgs e)
         {
             ////Logger.Log("Heartbeat...", LogType.Info);
-            Transmitter.Send(new BaseRequest { Game = gameName }, "game_heartbeat");
+            Transmitter.Send(new BaseRequest { Game = gameName }, "game_heartbeat", false);
         }
 
         private static void Update(object source, System.Timers.ElapsedEventArgs e)
@@ -434,7 +435,8 @@ namespace GameSense
                     Game = gameName,
                     Events = events.ToArray()
                 },
-                "multiple_game_events") ;
+                "multiple_game_events",
+                false);
         }
     }
 }

@@ -10,6 +10,8 @@
 
 using System.Collections.Generic;
 using System;
+using SharpLog.Output;
+using SharpLog;
 
 namespace GameSense.Animation
 {
@@ -18,6 +20,7 @@ namespace GameSense.Animation
         private static readonly SharpLog.Logger Logger = new SharpLog.Logger()
         {
             Ident = "GameSense/Animator/MouseGradient",
+            Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         private Dictionary<MouseZone, int>[] frames;

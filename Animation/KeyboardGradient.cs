@@ -13,6 +13,7 @@ namespace GameSense.Animation
     using System;
     using System.Collections.Generic;
     using SharpLog;
+    using SharpLog.Output;
 
     /// <summary>
     /// An <see cref="IKeyboardAnimator"/> that generates a gradient background effect. The gradient gets animated moving from right to left.
@@ -23,7 +24,8 @@ namespace GameSense.Animation
         {
             Ident = "GameSense/Animator/KeyboardGradient",
             LogDebug = false,
-            LogInfo = true
+            LogInfo = true,
+            Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         private static readonly int DimensionX = 22;

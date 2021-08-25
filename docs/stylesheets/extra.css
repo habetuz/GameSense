@@ -8,7 +8,8 @@
 }
 
 .md-typeset td > code,  .md-typeset article > code, .md-typeset p > code, .md-typeset a > code {
-   font-weight: bolder;
+    font-size: .95em;
+    font-weight: bolder;
    background: none;
    padding: 0;
 }
