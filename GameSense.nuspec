@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>GameSense</id>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <title>GameSense</title>
     <authors>Marvin Fuchs</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -11,12 +11,8 @@
     <repository type="git" url="https://github.com/habetuz/GameSense" branch="master"/>
     <description>GameSense API to controll SteelSeries products.</description>
     <releaseNotes>
-      Change:
-      ~ The `Transmitter` now automatically tries to reconnect when it cannot reach SteelSeries Engine.
-      ~ Warning and error logs now get written to the file `GameSense.log`.
-
-      Add:
-      + The possibility to specify a `Transmitter.Send()` call as important. When the `Transmitter` loses connection important request will get send on reconnection.
+      Fix:
+      - 'OutOfIndex' exception in the 'KeyboardGradient'
     </releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>

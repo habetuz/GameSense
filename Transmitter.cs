@@ -92,10 +92,9 @@ namespace GameSense
             }
             catch (Exception ex)
             {
-                
                 if (ex is System.IO.DirectoryNotFoundException || ex is System.IO.FileNotFoundException)
                 {
-                    Logger.Log("coreProps.json could not be found. Maybe the SteelSeries Engine is not running.", LogType.Error);
+                    Logger.Log("coreProps.json could not be found under C:/ProgramData/SteelSeries/SteelSeries Engine 3/coreProps.json. Maybe the SteelSeries Engine is not running.", LogType.Error);
                 }
                 else if(ex is HttpRequestException)
                 {

@@ -119,14 +119,15 @@ namespace GameSense.Animation
 
         KeyboardFrame IKeyboardAnimator.NextFrame(KeyboardFrame bottomLayer)
         {
+            KeyboardFrame frame = this.frames[this.currentFrame];
+            Logger.Log("Frame:" + this.currentFrame);
+            this.currentFrame++;
             if (this.currentFrame >= this.frames.Length)
             {
                 this.currentFrame = 0;
             }
 
-            Logger.Log("Frame:" + this.currentFrame);
-            this.currentFrame++;
-            return this.frames[this.currentFrame];
+            return frame;
         }
     }
 }
