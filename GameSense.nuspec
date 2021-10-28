@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>GameSense</id>
-    <version>1.2.2</version>
+    <version>1.2.3</version>
     <title>GameSense</title>
     <authors>Marvin Fuchs</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -11,17 +11,19 @@
     <repository type="git" url="https://github.com/habetuz/GameSense" branch="master"/>
     <description>GameSense API to control SteelSeries products.</description>
     <releaseNotes>
-      Fix:
-      - 'FileNotFound' exception due to not importing the right version of 'System.Runtime.CompilerServices.Unsafe'
-
       Change:
-      - references to only include necessary assemblies
+      - Update dependencies
     </releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>
     <dependencies>
       <dependency id="MarvinFuchs.SharpLog" version="2.3.0"/>
       <dependency id="MouseKeyHook" version="5.6.0"/>
+      <dependency id="System.Memory" version="4.5.4"/>
+      <dependency id="System.Net.Http" version="4.3.4"/>
+      <dependency id="System.Runtime" version="4.3.1"/>
+      <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.7.0"/>
+      <dependency id="System.Text.Json" version="5.0.2"/>
     </dependencies>
   </metadata>
 </package>
