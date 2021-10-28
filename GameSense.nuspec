@@ -2,17 +2,20 @@
 <package >
   <metadata>
     <id>GameSense</id>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
     <title>GameSense</title>
     <authors>Marvin Fuchs</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <projectUrl>https://gamesense.marvin-fuchs.de</projectUrl>
     <repository type="git" url="https://github.com/habetuz/GameSense" branch="master"/>
-    <description>GameSense API to controll SteelSeries products.</description>
+    <description>GameSense API to control SteelSeries products.</description>
     <releaseNotes>
       Fix:
-      - 'OutOfIndex' exception in the 'KeyboardGradient'
+      - 'FileNotFound' exception due to not importing the right version of 'System.Runtime.CompilerServices.Unsafe'
+
+      Change:
+      - references to only include necessary assemblies
     </releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>

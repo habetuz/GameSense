@@ -105,6 +105,7 @@ namespace GameSense
                     Logger.Log("coreProps.json could not be deserialized. Restart the SteelSeries Engine.", LogType.Error);
                 }
                 restartTimer.Start();
+                throw ex;
             }
         }
 
