@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>GameSense</id>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
     <title>GameSense</title>
     <authors>Marvin Fuchs</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,7 +12,7 @@
     <description>GameSense API to control SteelSeries products.</description>
     <releaseNotes>
       Change:
-      - Update dependencies
+      - version of `System.Runtime.CompilerServices.Unsafe` to `4.5.3`
     </releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>
@@ -22,7 +22,7 @@
       <dependency id="System.Memory" version="4.5.4"/>
       <dependency id="System.Net.Http" version="4.3.4"/>
       <dependency id="System.Runtime" version="4.3.1"/>
-      <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.7.0"/>
+      <dependency id="System.Runtime.CompilerServices.Unsafe" version="4.5.3"/>
       <dependency id="System.Text.Json" version="5.0.2"/>
     </dependencies>
   </metadata>
