@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>GameSense</id>
-    <version>1.2.5-alpha</version>
+    <version>1.2.6-alpha</version>
     <title>GameSense</title>
     <authors>Marvin Fuchs</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,7 +12,7 @@
     <description>GameSense API to control SteelSeries products.</description>
     <releaseNotes>
       Change:
-      - Throw exceptions in `Transmitter`
+      - Don't catch errors on `Transmitter` start.
     </releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>

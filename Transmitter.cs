@@ -57,8 +57,10 @@ namespace GameSense
 
         private static async void Start(object sender = null, ElapsedEventArgs e = null)
         {
+            /*
             try
             {
+            */
                 // Get Engine address from the coreProps.json file.
                 string file = System.IO.File.ReadAllText("C:/ProgramData/SteelSeries/SteelSeries Engine 3/coreProps.json");
                 CoreProps coreProps = JsonSerializer.Deserialize<CoreProps>(
@@ -89,6 +91,7 @@ namespace GameSense
                 {
                     Logger.Log("Ready!", LogType.Info, true);
                 }
+            /*
             }
             catch (Exception ex)
             {
@@ -109,6 +112,7 @@ namespace GameSense
                 // Debug
                 throw ex;
             }
+            */
         }
 
         /// <summary>
