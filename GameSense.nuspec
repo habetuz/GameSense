@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>GameSense</id>
-    <version>1.2.4</version>
+    <version>1.2.5-alpha</version>
     <title>GameSense</title>
     <authors>Marvin Fuchs</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,7 +12,7 @@
     <description>GameSense API to control SteelSeries products.</description>
     <releaseNotes>
       Change:
-      - version of `System.Runtime.CompilerServices.Unsafe` to `4.5.3`
+      - Throw exceptions in `Transmitter`
     </releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>
