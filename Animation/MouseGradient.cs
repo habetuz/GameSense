@@ -96,7 +96,7 @@ namespace GameSense.Animation
             this.frames = frames.ToArray();
         }
 
-        public Dictionary<MouseZone, int> NextFrame(Dictionary<MouseZone, int> bottomLayer)
+        public override Dictionary<MouseZone, int> NextFrame(Dictionary<MouseZone, int> bottomLayer)
         {
             if (this.currentFrame >= this.frames.Length)
             {
