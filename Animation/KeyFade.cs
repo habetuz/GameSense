@@ -15,9 +15,9 @@ namespace GameSense.Animation
     using SharpLog.Output;
 
     /// <summary>
-    /// An <see cref="IKeyAnimator"/> that animates a fading color for keys
+    /// An <see cref="KeyAnimator"/> that animates a fading color for keys
     /// </summary>
-    public class KeyFade : IKeyAnimator
+    public class KeyFade : KeyAnimator
     {
         private static readonly Logger Logger = new Logger()
         {
@@ -28,29 +28,10 @@ namespace GameSense.Animation
 
         private int fadeDuration = 60;
         private int transparency = 100;
-        private bool finished = false;
         private int[] color = new int[] { 255, 255, 255 };
-        private Key key;
 
         /// <summary>
-        /// Gets a value indicating whether the animation is finished. If 'true' the animation finished and the object can be discarded.
-        /// </summary>
-        public bool Finished
-        {
-            get { return this.finished; }
-        }
-
-        /// <summary>
-        /// Gets or sets the pressed key.
-        /// </summary>
-        public Key Key
-        {
-            get { return this.key; }
-            set { this.key = value; }
-        }
-
-        /// <summary>
-        /// Sets amount of <see cref="GameSense.Animation.IKeyboardAnimator.NextFrame(KeyboardFrame)"/> calls the key needs to fade out. Time dependents on the <see cref="GameSense.Controller.FrameLength"/>. Default: 100.
+        /// Sets amount of <see cref="GameSense.Animation.KeyboardAnimator.NextFrame(KeyboardFrame)"/> calls the key needs to fade out. Time dependents on the <see cref="GameSense.Controller.FrameLength"/>. Default: 100.
         /// </summary>
         public int FadeDuration
         {
@@ -72,7 +53,7 @@ namespace GameSense.Animation
         /// Creates a copy of itself.
         /// </summary>
         /// <returns>The copy.</returns>
-        public IKeyAnimator Copy()
+        public override KeyAnimator Copy()
         {
             return new KeyFade()
             {
@@ -86,7 +67,7 @@ namespace GameSense.Animation
         /// </summary>
         /// <param name="bottomLayer">The bottom <see cref="KeyboardFrame"/> the method will add it's own <see cref="KeyboardFrame"/> on.</param>
         /// <returns>the next <see cref="KeyboardFrame"/></returns>
-        public KeyboardFrame NextFrame(KeyboardFrame bottomLayer)
+        public override KeyboardFrame NextFrame(KeyboardFrame bottomLayer)
         {
             this.transparency -= 100 / this.fadeDuration;
             Logger.Log("Next frame. Transparency: " + this.transparency);
@@ -97,8 +78,8 @@ namespace GameSense.Animation
             }
 
             return bottomLayer.SetColor(
-                (int)this.key,
-                ColorManipulation.Combine(bottomLayer.Bitmap[(int)this.key], this.color, this.transparency));
+                (int)this.Key,
+                ColorManipulation.Combine(bottomLayer.Bitmap[(int)this.Key], this.color, this.transparency));
         }
     }
 }

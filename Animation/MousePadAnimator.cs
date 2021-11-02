@@ -1,4 +1,4 @@
-﻿// <copyright file="IMousePadAnimator.cs">
+﻿// <copyright file="MousePadAnimator.cs">
 // Copyright (c) 2021. All Rights Reserved
 // </copyright>
 // <author>
@@ -11,10 +11,11 @@
 namespace GameSense.Animation
 {
     /// <summary>
-    /// Interface for mouse pad animations.
+    /// 
+    /// Abstract class for mouse pad animations.
     /// </summary>
-    public interface IMousePadAnimator
+    public abstract class MousePadAnimator
     {
-        int[][] NextFrame(int[][] bottomLayer);
+        public abstract int[][] NextFrame(int[][] bottomLayer);
     }
 }

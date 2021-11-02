@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>GameSense</id>
-    <version>1.2.10</version>
+    <version>1.3.0</version>
     <title>GameSense</title>
     <authors>Marvin Fuchs</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -11,13 +11,20 @@
     <repository type="git" url="https://github.com/habetuz/GameSense" branch="master"/>
     <description>GameSense API to control SteelSeries products.</description>
     <releaseNotes>
+      Add:
+      - New `KeyboardAnimator` `KeyboardColor` that generates one color
+
       Change:
-      - Update `System.Runtime.CompilerServices.Unsafe` to version `5.0.0`
+      - Update `MarvinFuchs.SharpLog` to version `2.4.1`
+      - Make `IKeyboardAnimator` an `abstract class` and rename it to `KeyboardAnimator`
+      - Make `IKeyAnimator` an `abstract class` and rename it to `KeyAnimator`
+      - Make `IMouseAnimator` an `abstract class` and rename it to `MouseAnimator`
+      - Make `IMousePadAnimator` an `abstract class` and rename it to `MousePadAnimator`
     </releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>
     <dependencies>
-      <dependency id="MarvinFuchs.SharpLog" version="2.3.0"/>
+      <dependency id="MarvinFuchs.SharpLog" version="2.4.1"/>
       <dependency id="MouseKeyHook" version="5.6.0"/>
       <dependency id="System.Memory" version="4.5.4"/>
       <dependency id="System.Net.Http" version="4.3.4"/>

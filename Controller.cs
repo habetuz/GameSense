@@ -53,35 +53,36 @@ namespace GameSense
         private static string developer;
 
         /// <summary>
-        /// Sets the <see cref="IKeyboardAnimator"/> used for the keyboard background.
+        /// Sets the <see cref="KeyboardAnimator"/> used for the keyboard background.
         /// </summary>
-        public static IKeyboardAnimator KeyboardBackground
+        public static KeyboardAnimator KeyboardBackground
         {
             set
             {
                 KeyboardFrameManager.Background = value;
-                UpdateTimer.Enabled = true;
                 Logger.Log("Keyboard background set.", LogType.Info);
             }
+
         }
 
         /// <summary>
-        /// Sets the default <see cref="IKeyAnimator"/> used when a key gets pressed.
+        /// Sets the default <see cref="KeyAnimator"/> used when a key gets pressed.
         /// </summary>
-        public static IKeyAnimator DefaultKeyAnimation
+        public static KeyAnimator DefaultKeyAnimation
         {
             set
             {
                 InputManager.DefaultKeyAnimation = value;
+                Logger.Log("Default key animation set.", LogType.Info);
+
             }
         }
 
-        public static IMouseAnimator MouseBackground
+        public static MouseAnimator MouseBackground
         {
             set
             {
                 MouseFrameManager.Animator = value;
-                UpdateTimer.Enabled = true;
                 Logger.Log("Mouse background set.", LogType.Info);
             }
         }
@@ -314,12 +315,13 @@ namespace GameSense
         {
             UpdateTimer.Elapsed += Update;
             UpdateTimer.AutoReset = true;
+            UpdateTimer.Enabled = true;
             Logger.Log("UpdateTimer ready.", LogType.Info);
         }
 
-        private static void Heartbeat(object source, System.Timers.ElapsedEventArgs e)
+        private static void Heartbeat(object source, ElapsedEventArgs e)
         {
-            ////Logger.Log("Heartbeat...", LogType.Info);
+            //Logger.Log("Heartbeat...", LogType.Info);
             Transmitter.Send(new BaseRequest { Game = gameName }, "game_heartbeat", false);
         }
 

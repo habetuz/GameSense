@@ -1,4 +1,4 @@
-﻿// <copyright file="IKeyboardAnimator.cs">
+﻿// <copyright file="KeyboardAnimator.cs">
 // Copyright (c) 2021. All Rights Reserved
 // </copyright>
 // <author>
@@ -11,15 +11,18 @@
 namespace GameSense.Animation
 {
     /// <summary>
-    /// Interface for keyboard animations.
+    /// Abstract class for keyboard animations.
     /// </summary>
-    public interface IKeyboardAnimator
+    public abstract class KeyboardAnimator
     {
+        protected static readonly int DimensionX = 22;
+        protected static readonly int DimensionY = 6;
+
         /// <summary>
         /// Generates the next <see cref="KeyboardFrame"/> of the animation.
         /// </summary>
         /// <param name="bottomLayer">The bottom <see cref="KeyboardFrame"/> the method will add it's own <see cref="KeyboardFrame"/> on.</param>
         /// <returns>the next <see cref="KeyboardFrame"/></returns>
-        KeyboardFrame NextFrame(KeyboardFrame bottomLayer = null);
+        public abstract KeyboardFrame NextFrame(KeyboardFrame bottomLayer = null);
     }
 }

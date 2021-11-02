@@ -42,9 +42,9 @@ namespace GameSense
         }
 
         /// <summary>
-        /// Gets or sets the default <see cref="IKeyAnimator"/> for key presses.
+        /// Gets or sets the default <see cref="KeyAnimator"/> for key presses.
         /// </summary>
-        public static IKeyAnimator DefaultKeyAnimation { get; set; }
+        public static KeyAnimator DefaultKeyAnimation { get; set; }
 
         /// <summary>
         /// Starts the <see cref="InputManager"/>
@@ -70,7 +70,7 @@ namespace GameSense
             {
                 Logger.Log(((Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString())).ToString(), LogType.Info);
                 Logger.Log(((Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString())).ToString());
-                IKeyAnimator animation = DefaultKeyAnimation.Copy();
+                KeyAnimator animation = DefaultKeyAnimation.Copy();
                 animation.Key = (Key)Enum.Parse(typeof(Key), eventArgs.KeyCode.ToString());
                 KeyboardFrameManager.AddKeyAnimation(animation);
             }
@@ -82,7 +82,7 @@ namespace GameSense
 
         private static void MouseEvent(object sender, MouseEventArgs eventArgs)
         {
-            Logger.Log(eventArgs.Button.ToString(), LogType.Info);
+            Logger.Log(eventArgs.Button.ToString(), LogType.Info, instant: true);
         }
     }
 }

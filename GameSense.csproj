@@ -33,10 +33,11 @@
   <ItemGroup>
     <Compile Include="Animation\AnimationKeyboardTest.cs" />
     <Compile Include="Animation\ColorManipulation.cs" />
-    <Compile Include="Animation\IKeyAnimator.cs" />
-    <Compile Include="Animation\IKeyboardAnimator.cs" />
+    <Compile Include="Animation\KeyAnimator.cs" />
+    <Compile Include="Animation\KeyboardAnimator.cs" />
     <Compile Include="Animation\IMouseAnimator.cs" />
     <Compile Include="Animation\IMousePadAnimator.cs" />
+    <Compile Include="Animation\KeyboardColor.cs" />
     <Compile Include="Animation\KeyboardGradient.cs" />
     <Compile Include="Animation\KeyFade.cs" />
     <Compile Include="Animation\MouseGradient.cs" />
@@ -61,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MarvinFuchs.SharpLog">
-      <Version>2.3.0</Version>
+      <Version>2.4.1</Version>
     </PackageReference>
     <PackageReference Include="MouseKeyHook">
       <Version>5.6.0</Version>

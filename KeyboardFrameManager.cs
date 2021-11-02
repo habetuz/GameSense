@@ -27,22 +27,22 @@ namespace GameSense
             Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
-        private static readonly List<IKeyAnimator> PressedKeys = new List<IKeyAnimator>();
-        private static IKeyboardAnimator background;
+        private static readonly List<KeyAnimator> PressedKeys = new List<KeyAnimator>();
+        private static KeyboardAnimator background = new KeyboardColor(new int[] { 0, 0, 0 });
 
         /// <summary>
         /// Sets the <see cref="GameSense.Animation.IAnimator"/> for the background.
         /// </summary>
-        public static IKeyboardAnimator Background
+        public static KeyboardAnimator Background
         {
             set { background = value; }
         }
 
         /// <summary>
-        /// Adds a <see cref="IKeyAnimator"/> for a <see cref="Key"/>. Removes any excising <see cref="IKeyAnimator"/> for the <see cref="Key"/> of the given parameter.
+        /// Adds a <see cref="KeyAnimator"/> for a <see cref="Key"/>. Removes any excising <see cref="KeyAnimator"/> for the <see cref="Key"/> of the given parameter.
         /// </summary>
-        /// <param name="keyAnimation">The <see cref="IKeyAnimator"/> to be added.</param>
-        public static void AddKeyAnimation(IKeyAnimator keyAnimation)
+        /// <param name="keyAnimation">The <see cref="KeyAnimator"/> to be added.</param>
+        public static void AddKeyAnimation(KeyAnimator keyAnimation)
         {
             Logger.Log(PressedKeys.TrueForAll(animator => animator.Key != keyAnimation.Key) + string.Empty);
             PressedKeys.RemoveAll(animator => animator.Key == keyAnimation.Key);

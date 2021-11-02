@@ -54,7 +54,7 @@ namespace GameSense
         {
             try
             {
-                Logger.Log("Converting " + name + " to " + DotNetGSPairs[name]);
+                Logger.Log("Converting " + name + " to " + DotNetGSPairs[name], LogType.Debug);
                 return DotNetGSPairs[name];
             }
             catch

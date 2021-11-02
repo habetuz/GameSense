@@ -20,7 +20,7 @@ namespace GameSense
 
     static class MouseFrameManager
     {
-        public static IMouseAnimator Animator { get; set; }
+        public static MouseAnimator Animator { get; set; }
 
         public static Dictionary<MouseZone, int> Generate()
         {

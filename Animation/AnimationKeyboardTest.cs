@@ -12,7 +12,7 @@ namespace GameSense.Animation
 {
     using SharpLog;
 
-    class KeyboardTest : IKeyboardAnimator
+    class KeyboardTest : KeyboardAnimator
     {
         private static readonly Logger Logger = new Logger
         {
@@ -32,7 +32,7 @@ namespace GameSense.Animation
             }
         }
 
-        public KeyboardFrame NextFrame(KeyboardFrame bottomLayer)
+        public override KeyboardFrame NextFrame(KeyboardFrame bottomLayer)
         {
             this.pos += 1;
             if (this.pos > 132)

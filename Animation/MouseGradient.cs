@@ -15,7 +15,7 @@ using SharpLog;
 
 namespace GameSense.Animation
 {
-    public class MouseGradient : IMouseAnimator
+    public class MouseGradient : MouseAnimator
     {
         private static readonly SharpLog.Logger Logger = new SharpLog.Logger()
         {

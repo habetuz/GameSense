@@ -1,4 +1,4 @@
-﻿// <copyright file="IMouseAnimator.cs">
+﻿// <copyright file="MouseAnimator.cs">
 // Copyright (c) 2021. All Rights Reserved
 // </copyright>
 // <author>
@@ -13,10 +13,10 @@ namespace GameSense.Animation
     using System.Collections.Generic;
 
     /// <summary>
-    /// Interface for mouse animations.
+    /// Abstract class for mouse animations.
     /// </summary>
-    public interface IMouseAnimator
+    public abstract class MouseAnimator
     { 
-        Dictionary<MouseZone, int> NextFrame(Dictionary<MouseZone, int> bottomLayer);
+        public abstract Dictionary<MouseZone, int> NextFrame(Dictionary<MouseZone, int> bottomLayer);
     }
 }

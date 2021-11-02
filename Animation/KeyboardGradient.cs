@@ -16,9 +16,9 @@ namespace GameSense.Animation
     using SharpLog.Output;
 
     /// <summary>
-    /// An <see cref="IKeyboardAnimator"/> that generates a gradient background effect. The gradient gets animated moving from right to left.
+    /// An <see cref="KeyboardAnimator"/> that generates a gradient background effect. The gradient gets animated moving from right to left.
     /// </summary>
-    public class KeyboardGradient : IKeyboardAnimator
+    public class KeyboardGradient : KeyboardAnimator
     {
         private static readonly Logger Logger = new Logger
         {
@@ -27,9 +27,6 @@ namespace GameSense.Animation
             LogInfo = true,
             Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
-
-        private static readonly int DimensionX = 22;
-        private static readonly int DimensionY = 6;
 
         private int currentFrame = 0;
         private KeyboardFrame[] frames;
@@ -117,7 +114,7 @@ namespace GameSense.Animation
             Logger.Log(this.frames.Length + " frames rendered");
         }
 
-        KeyboardFrame IKeyboardAnimator.NextFrame(KeyboardFrame bottomLayer)
+        public override KeyboardFrame NextFrame(KeyboardFrame bottomLayer)
         {
             KeyboardFrame frame = this.frames[this.currentFrame];
             Logger.Log("Frame:" + this.currentFrame);

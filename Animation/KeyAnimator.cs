@@ -1,4 +1,4 @@
-﻿// <copyright file="IKeyAnimator.cs">
+﻿// <copyright file="KeyAnimator.cs">
 // Copyright (c) 2021. All Rights Reserved
 // </copyright>
 // <author>
@@ -11,24 +11,31 @@
 namespace GameSense.Animation
 {
     /// <summary>
-    /// Interface for key animations
+    /// Abstract class for key animations
     /// </summary>
-    public interface IKeyAnimator : IKeyboardAnimator
+    public abstract class KeyAnimator : KeyboardAnimator
     {
+        protected bool finished;
+
         /// <summary>
         /// Gets a value indicating whether the animation has finished yet.
         /// </summary>
-        bool Finished { get; }
+        public bool Finished { 
+            get
+            {
+                return this.finished;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the key to be animated.
         /// </summary>
-        Key Key { get; set; }
+        public Key Key { get; set; }
 
         /// <summary>
         /// Creates a copy of itself.
         /// </summary>
         /// <returns>The copy</returns>
-        IKeyAnimator Copy();
+        public abstract KeyAnimator Copy();
     }
 }
