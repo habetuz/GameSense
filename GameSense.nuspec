@@ -12,10 +12,18 @@
     <description>GameSense API to control SteelSeries products.</description>
     <releaseNotes>
       Add:
-      - New `KeyboardAnimator` `KeyboardColor` that generates one color
+      - new `KeyboardAnimator` `KeyboardColor` that generates one color
+      - new `MouseAnimator` `MouseValue` that generates one value
+      - class `GenericFrameManager` for other devices than keyboard and mouse
+      - namespace `GameSense.Animation.Generic` for animations for other devices than keyboard and mouse
+      - interface `IAnimator` for animations for other devices than keyboard and mouse
+      - class `SingleValueAnimation : IAnimator` for a constant value
+      - `EventData` field to `BaseRequest`
+      - getter for `GameName`, `GameDisplayName`, `Developer`, `KeyboardBackground`, `DefaultKeyAnimation` and `MouseBackground` int `Controller`
+      - `UpdateInterval` in `Controller` to change the update interval
 
       Change:
-      - Update `MarvinFuchs.SharpLog` to version `2.4.1`
+      - Update `MarvinFuchs.SharpLog` to version `2.4.2`
       - Make `IKeyboardAnimator` an `abstract class` and rename it to `KeyboardAnimator`
       - Make `IKeyAnimator` an `abstract class` and rename it to `KeyAnimator`
       - Make `IMouseAnimator` an `abstract class` and rename it to `MouseAnimator`
@@ -24,7 +32,7 @@
     <copyright>$copyright$</copyright>
     <tags>Steelseries</tags>
     <dependencies>
-      <dependency id="MarvinFuchs.SharpLog" version="2.4.1"/>
+      <dependency id="MarvinFuchs.SharpLog" version="2.4.2"/>
       <dependency id="MouseKeyHook" version="5.6.0"/>
       <dependency id="System.Memory" version="4.5.4"/>
       <dependency id="System.Net.Http" version="4.3.4"/>

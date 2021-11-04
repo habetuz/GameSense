@@ -62,6 +62,8 @@ namespace GameSense
             GlobalHook.KeyDown -= KeyEvent;
 
             GlobalHook.Dispose();
+
+            Logger.Log("Closed!", LogType.Info, instant: true);
         }
 
         private static void KeyEvent(object sender, KeyEventArgs eventArgs)
@@ -82,7 +84,9 @@ namespace GameSense
 
         private static void MouseEvent(object sender, MouseEventArgs eventArgs)
         {
-            Logger.Log(eventArgs.Button.ToString(), LogType.Info, instant: true);
+            Logger.Log(eventArgs.Button.ToString(), LogType.Info);
+            Logger.Log(eventArgs.Button.ToString());
+
         }
     }
 }

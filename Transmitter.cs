@@ -136,7 +136,7 @@ namespace GameSense
                     Encoding.UTF8,
                     "application/json");
 
-            //Logger.Log(JsonSerializer.Serialize<BaseRequest>(request, new JsonSerializerOptions { PropertyNamingPolicy = new GSJsonNamingPolicy(), WriteIndented = true }));
+            Logger.Log(JsonSerializer.Serialize(request, new JsonSerializerOptions { PropertyNamingPolicy = new GSJsonNamingPolicy(), WriteIndented = true }));
 
             try
             {
@@ -149,12 +149,16 @@ namespace GameSense
                 }
                 else
                 {
-                    Logger.Log("Request to endpoint '" + endpoint + "' failed! Status: " + response.StatusCode + " | Content: " + await response.Content.ReadAsStringAsync(), LogType.Warning);
+                    Logger.Log(
+                            "Request to endpoint '" + endpoint + "' failed!" +
+                          "\nStatus: " + response.StatusCode + 
+                        "\n\nResponse:\n" + await response.Content.ReadAsStringAsync() + 
+                        "\n\nRequest:\n" + JsonSerializer.Serialize(request, new JsonSerializerOptions { PropertyNamingPolicy = new GSJsonNamingPolicy(), WriteIndented = true }), LogType.Error);
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                Logger.Log("Request to endpoint '" + endpoint + "' failed! The engine could be off line. Try to restart the Engine.", LogType.Error);
+                Logger.Log("Request to endpoint '" + endpoint + "' failed! The engine could be offline. Try to restart the Engine.", LogType.Error);
                 if(important)
                 {
                     pendingRequests.Enqueue(new Tuple<BaseRequest, string>(request, endpoint));

@@ -8,13 +8,10 @@
 // Visit https://marvin-fuchs.de for more information
 // </summary>
 
-namespace GameSense.Animation
+namespace GameSense.Animation.Generic
 {
-    /// <summary>
-    /// Abstract class for mouse pad animations.
-    /// </summary>
-    public abstract class MousePadAnimator
+    public interface IAnimator
     {
-        public abstract int[] NextFrame(int[] bottomLayer);
+        int[] NextFrame(int[] bottomLayer, int numberOfZones);
     }
 }

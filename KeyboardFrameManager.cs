@@ -22,21 +22,17 @@ namespace GameSense
     {
         private static readonly Logger Logger = new Logger()
         {
-            Ident = "KeyboardFrameManager",
+            Ident = "GameSense/KeyboardFrameManager",
             LogDebug = false,
             Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         private static readonly List<KeyAnimator> PressedKeys = new List<KeyAnimator>();
-        private static KeyboardAnimator background = new KeyboardColor(new int[] { 0, 0, 0 });
 
         /// <summary>
-        /// Sets the <see cref="GameSense.Animation.IAnimator"/> for the background.
+        /// Gets or sets the <see cref="GameSense.Animation.IAnimator"/> for the background.
         /// </summary>
-        public static KeyboardAnimator Background
-        {
-            set { background = value; }
-        }
+        public static KeyboardAnimator Background { get; set; } = new KeyboardColor(new int[] { 0, 0, 0 });
 
         /// <summary>
         /// Adds a <see cref="KeyAnimator"/> for a <see cref="Key"/>. Removes any excising <see cref="KeyAnimator"/> for the <see cref="Key"/> of the given parameter.
@@ -55,9 +51,9 @@ namespace GameSense
         /// <returns>The combined <see cref="GameSense.Struct.Frame"/></returns>
         public static KeyboardFrame Generate()
         {
-            if (background == null) return null;
+            if (Background == null) return null;
 
-            KeyboardFrame frame = background.NextFrame().Copy();
+            KeyboardFrame frame = Background.NextFrame().Copy();
             Logger.Log(PressedKeys.Count + string.Empty);
             PressedKeys.ForEach(key => frame = key.NextFrame(frame));
             PressedKeys.RemoveAll(key => key.Finished);

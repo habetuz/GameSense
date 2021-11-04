@@ -56,6 +56,11 @@ namespace GameSense.Struct.Request
         public bool ValueOptional { get; set; }
 
         /// <summary>
+        /// Gets or sets the event data.
+        /// </summary>
+        public EventData Data { get; set; }
+
+        /// <summary>
         /// Gets or sets the handlers.
         /// </summary>
         public Handler[] Handlers { get; set; }

@@ -8,13 +8,13 @@
 // Visit https://marvin-fuchs.de for more information
 // </summary>
 
-using System.Collections.Generic;
-using System;
-using SharpLog.Output;
-using SharpLog;
-
 namespace GameSense.Animation
 {
+    using System.Collections.Generic;
+    using System;
+    using SharpLog.Output;
+    using SharpLog;
+
     public class MouseGradient : MouseAnimator
     {
         private static readonly SharpLog.Logger Logger = new SharpLog.Logger()

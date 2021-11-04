@@ -37,6 +37,7 @@ namespace GameSense
         private const string EndpointBindEvent      = "bind_game_event";
         private const string EndpointRegisterEvent  = "register_game_event";
         private const string EndpointGameEvent      = "multiple_game_events";
+        // private const string EndpointGameEvent      = "game_event";
 
         internal const string LogFile = "GameSense.log";
 
@@ -45,15 +46,18 @@ namespace GameSense
         private static readonly Logger Logger = new Logger
         {
             Ident = "GameSense/Controller",
+            LogDebug = false,
             Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
         private static string gameName;
         private static string gameDisplayName;
         private static string developer;
+        private static List<GenericFrameManager> genericFrameManagers = new List<GenericFrameManager>();
+        private static bool started = false;
 
         /// <summary>
-        /// Sets the <see cref="KeyboardAnimator"/> used for the keyboard background.
+        /// Gets or sets the <see cref="KeyboardAnimator"/> used for the keyboard background.
         /// </summary>
         public static KeyboardAnimator KeyboardBackground
         {
@@ -62,11 +66,15 @@ namespace GameSense
                 KeyboardFrameManager.Background = value;
                 Logger.Log("Keyboard background set.", LogType.Info);
             }
+            get
+            {
+                return KeyboardFrameManager.Background;
+            }
 
         }
 
         /// <summary>
-        /// Sets the default <see cref="KeyAnimator"/> used when a key gets pressed.
+        /// Gets or sets the default <see cref="KeyAnimator"/> used when a key gets pressed.
         /// </summary>
         public static KeyAnimator DefaultKeyAnimation
         {
@@ -76,24 +84,32 @@ namespace GameSense
                 Logger.Log("Default key animation set.", LogType.Info);
 
             }
+            get
+            {
+                return InputManager.DefaultKeyAnimation;
+            }
         }
 
         public static MouseAnimator MouseBackground
         {
             set
             {
-                MouseFrameManager.Animator = value;
+                MouseFrameManager.Background = value;
                 Logger.Log("Mouse background set.", LogType.Info);
+            }
+            get
+            {
+                return MouseFrameManager.Background;
             }
         }
 
         /// <summary>
-        /// Sets the game name for the game sense engine.
+        /// Gets or sets the game name for the game sense engine.
         /// </summary>
         public static string GameName
         {
             set
-            {
+            {   
                 Logger.Log("Name set: " + value, LogType.Info);
                 gameName = value;
                 if (ReadyForInitialization())
@@ -101,10 +117,14 @@ namespace GameSense
                     Start();
                 }
             }
+            get
+            {
+                return gameName;
+            }
         }
 
         /// <summary>
-        /// Sets the name that is displayed in the game sense engine.
+        /// Gets or sets the name that is displayed in the game sense engine.
         /// </summary>
         public static string GameDisplayName
         {
@@ -117,10 +137,14 @@ namespace GameSense
                     Start();
                 }
             }
+            get
+            {
+                return gameDisplayName;
+            }
         }
 
         /// <summary>
-        /// Sets the developer of the project.
+        /// Gets or sets the developer of the project.
         /// </summary>
         public static string Developer
         {
@@ -133,7 +157,29 @@ namespace GameSense
                     Start();
                 }
             }
+            get
+            {
+                return developer;
+            }
         }
+
+        /// <summary>
+        /// Gets or sets the update interval in milliseconds.
+        /// </summary>
+        public static double UpdateInterval
+        {
+            get
+            {
+                return UpdateTimer.Interval;
+            }
+            set
+            {
+                Logger.Log("Update interval changed from " + UpdateTimer.Interval + "ms to " + value + "ms", LogType.Info);
+                UpdateTimer.Interval = value;
+            }
+        }
+
+        
 
         /// <summary>
         /// Initialize the <see cref="GameSense.Controller"/> and start game sense.
@@ -147,6 +193,8 @@ namespace GameSense
             BindEvents();
             StartUpdate();
 
+            started = true;
+
             Logger.Log("Ready!", LogType.Info);
         }
 
@@ -155,15 +203,16 @@ namespace GameSense
         /// </summary>
         public static void Stop()
         {
+            Logger.Log("Stopping...", LogType.Info);
             InputManager.Stop();
         }
 
         private static bool ReadyForInitialization()
         {
             return
-                gameDisplayName != null &&
-                developer != null &&
-                gameName != null;
+                GameDisplayName != null &&
+                Developer != null &&
+                GameName != null;
         }
 
         private static void RegisterGame()
@@ -172,9 +221,9 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
-                    GameDisplayName = gameDisplayName,
-                    Developer = developer
+                    Game = GameName,
+                    GameDisplayName = GameDisplayName,
+                    Developer = Developer
                 },
                 EndpointRegisterGame);
         }
@@ -184,7 +233,7 @@ namespace GameSense
             Logger.Log("Binding events...", LogType.Info);
             BindKeyboardEvent();
             BindMouseEvents();
-            
+            BindGenericEvents();
         }
 
         private static void BindKeyboardEvent()
@@ -194,7 +243,7 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Event = EventKeyboard,
                     Handlers = new Handler[]
                     {
@@ -214,7 +263,7 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Event = EventMouseWheel,
                     MinValue = 0,
                     MaxValue = 100,
@@ -225,7 +274,7 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Event = EventMouseLogo,
                     MinValue = 0,
                     MaxValue = 100,
@@ -236,7 +285,7 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Event = EventMouseLeft1,
                     MinValue = 0,
                     MaxValue = 100,
@@ -247,7 +296,7 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Event = EventMouseLeft2,
                     MinValue = 0,
                     MaxValue = 100,
@@ -258,7 +307,7 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Event = EventMouseLeft3,
                     MinValue = 0,
                     MaxValue = 100,
@@ -269,7 +318,7 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Event = EventMouseRight1,
                     MinValue = 0,
                     MaxValue = 100,
@@ -280,7 +329,7 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Event = EventMouseRight2,
                     MinValue = 0,
                     MaxValue = 100,
@@ -291,7 +340,7 @@ namespace GameSense
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Event = EventMouseRight3,
                     MinValue = 0,
                     MaxValue = 100,
@@ -302,9 +351,47 @@ namespace GameSense
             Logger.Log("Mouse events binned!", LogType.Info);
         }
 
+        private static void BindGenericEvents()
+        {
+            genericFrameManagers.ForEach(frameManager =>
+            {
+                BindGenericEvent(frameManager.Prefix, frameManager.NumberOfZones);
+            });
+        }
+
+        private static void BindGenericEvent(string prefix, int numberOfZones)
+        {
+            for (int i = 0; i < numberOfZones; i++)
+            {
+                Transmitter.Send(
+                new BaseRequest
+                {
+                    Game = GameName,
+                    Event = prefix + i,
+                    MinValue = 0,
+                    MaxValue = 100,
+                    ValueOptional = false,
+                },
+                EndpointRegisterEvent,
+                important: true);
+            }
+
+            Logger.Log("Events of generic frame manager with prefix " + prefix + " binned!", LogType.Info);
+        }
+
+        public static void AddGenericFrameManager(GenericFrameManager frameManager)
+        {
+            if(started)
+            {
+                BindGenericEvent(frameManager.Prefix, frameManager.NumberOfZones);
+            }
+
+            genericFrameManagers.Add(frameManager);
+        }
+
         private static void StartHeartbeat()
         {
-            Timer timer = new System.Timers.Timer(10000);
+            Timer timer = new Timer(10000);
             timer.Elapsed += Heartbeat;
             timer.AutoReset = true;
             timer.Enabled = true;
@@ -322,16 +409,22 @@ namespace GameSense
         private static void Heartbeat(object source, ElapsedEventArgs e)
         {
             //Logger.Log("Heartbeat...", LogType.Info);
-            Transmitter.Send(new BaseRequest { Game = gameName }, "game_heartbeat", false);
+            Transmitter.Send(new BaseRequest { Game = GameName }, "game_heartbeat", false);
         }
 
-        private static void Update(object source, System.Timers.ElapsedEventArgs e)
+        private static bool on = false;
+
+        private static void Update(object source, ElapsedEventArgs e)
         {
-            Logger.Log("Keyboard-Effect...", LogType.Debug);
 
             List<EventBinder> events = new List<EventBinder>();
 
-            KeyboardFrame keyboardFrame = KeyboardFrameManager.Generate();
+
+            Logger.Log("Keyboard-Effect...", LogType.Debug);
+
+
+            // KeyboardFrame keyboardFrame = KeyboardFrameManager.Generate();
+            KeyboardFrame keyboardFrame = on ? new KeyboardColor(new int[] { 0, 0, 0 }).NextFrame(null) : new KeyboardColor(new int[] { 255, 255, 255 }).NextFrame(null);
             if(keyboardFrame != null)
             {
                 events.Add(new EventBinder
@@ -343,12 +436,18 @@ namespace GameSense
                     }
                 });
             }
+            
 
+            Logger.Log("Mouse-Effect...");
 
-            //// Dictionary<MouseZone, int> mouseFrame = MouseFrameManager.Generate();
+            //Dictionary<MouseZone, int> mouseFrame = MouseFrameManager.Generate();
+
+            Dictionary<MouseZone, int> mouseFrame = on ? new MouseValue(0).NextFrame(null) : new MouseValue(100).NextFrame(null);
+            on = !on;
+
             /*
             Random random = new Random();
-            Dictionary<MouseZone, int> mouseFrame = new Dictionary<MouseZone, int>()
+            new Dictionary<MouseZone, int>()
             {
                 { MouseZone.Wheel , random.Next(0, 101) },
                 { MouseZone.Left1 , random.Next(0, 101) },
@@ -361,84 +460,188 @@ namespace GameSense
             };
             */
 
-            /*
-            if (mouseFrame != null)
+
+            events.Add(new EventBinder
             {
-                events.Add(new EventBinder
+                Event = EventMouseWheel,
+                Data = new EventData
                 {
+                    Value = mouseFrame[MouseZone.Wheel]
+                }
+            });
+            events.Add(new EventBinder
+            {
+                Event = EventMouseLeft3,
+                Data = new EventData
+                {
+                    Value = mouseFrame[MouseZone.Left1]
+                }
+            });
+            events.Add(new EventBinder
+            {
+                Event = EventMouseRight3,
+                Data = new EventData
+                {
+                    Value = mouseFrame[MouseZone.Right1]
+                }
+            });
+            events.Add(new EventBinder
+            {
+                Event = EventMouseLeft2,
+                Data = new EventData
+                {
+                    Value = mouseFrame[MouseZone.Left2]
+                }
+            });
+            events.Add(new EventBinder
+            {
+                Event = EventMouseRight2,
+                Data = new EventData
+                {
+                    Value = mouseFrame[MouseZone.Right2]
+                }
+            });
+            events.Add(new EventBinder
+            {
+                Event = EventMouseLeft1,
+                Data = new EventData
+                {
+                    Value = mouseFrame[MouseZone.Left3]
+                }
+            });
+            events.Add(new EventBinder
+            {
+                Event = EventMouseRight1,
+                Data = new EventData
+                {
+                    Value = mouseFrame[MouseZone.Right3]
+                }
+            });
+            events.Add(new EventBinder
+            {
+                Event = EventMouseLogo,
+                Data = new EventData
+                {
+                    Value = mouseFrame[MouseZone.Logo]
+                }
+            });
+
+
+            // Single event per request
+            /*
+            Transmitter.Send(
+                new BaseRequest
+                {
+                    Game = GameName,
                     Event = EventMouseWheel,
-                    Data = new RequestData
+                    Data = new EventData
                     {
                         Value = mouseFrame[MouseZone.Wheel]
                     }
-                });
-                events.Add(new EventBinder
+                },
+                EndpointGameEvent,
+                important: false);
+            Transmitter.Send(
+                new BaseRequest
                 {
-                    Event = EventMouseLeft1,
-                    Data = new RequestData
-                    {
-                        Value = mouseFrame[MouseZone.Left1]
-                    }
-                });
-                events.Add(new EventBinder
-                {
-                    Event = EventMouseRight1,
-                    Data = new RequestData
-                    {
-                        Value = mouseFrame[MouseZone.Right1]
-                    }
-                });
-                events.Add(new EventBinder
-                {
-                    Event = EventMouseLeft2,
-                    Data = new RequestData
-                    {
-                        Value = mouseFrame[MouseZone.Left2]
-                    }
-                });
-                events.Add(new EventBinder
-                {
-                    Event = EventMouseRight2,
-                    Data = new RequestData
-                    {
-                        Value = mouseFrame[MouseZone.Right2]
-                    }
-                });
-                events.Add(new EventBinder
-                {
+                    Game = GameName,
                     Event = EventMouseLeft3,
-                    Data = new RequestData
+                    Data = new EventData
                     {
                         Value = mouseFrame[MouseZone.Left3]
                     }
-                });
-                events.Add(new EventBinder
+                },
+                EndpointGameEvent,
+                important: false);
+            Transmitter.Send(
+                new BaseRequest
                 {
+                    Game = GameName,
+                    Event = EventMouseLeft2,
+                    Data = new EventData
+                    {
+                        Value = mouseFrame[MouseZone.Left2]
+                    }
+                },
+                EndpointGameEvent,
+                important: false);
+            Transmitter.Send(
+                new BaseRequest
+                {
+                    Game = GameName,
+                    Event = EventMouseLeft1,
+                    Data = new EventData
+                    {
+                        Value = mouseFrame[MouseZone.Left1]
+                    }
+                },
+                EndpointGameEvent,
+                important: false);
+            Transmitter.Send(
+                new BaseRequest
+                {
+                    Game = GameName,
+                    Event = EventMouseRight1,
+                    Data = new EventData
+                    {
+                        Value = mouseFrame[MouseZone.Right1]
+                    }
+                },
+                EndpointGameEvent,
+                important: false);
+            Transmitter.Send(
+                new BaseRequest
+                {
+                    Game = GameName,
+                    Event = EventMouseRight2,
+                    Data = new EventData
+                    {
+                        Value = mouseFrame[MouseZone.Right2]
+                    }
+                },
+                EndpointGameEvent,
+                important: false);
+            Transmitter.Send(
+                new BaseRequest
+                {
+                    Game = GameName,
                     Event = EventMouseRight3,
-                    Data = new RequestData
+                    Data = new EventData
                     {
                         Value = mouseFrame[MouseZone.Right3]
                     }
-                });
-                events.Add(new EventBinder
+                },
+                EndpointGameEvent,
+                important: false);
+            Transmitter.Send(
+                new BaseRequest
                 {
+                    Game = GameName,
                     Event = EventMouseLogo,
-                    Data = new RequestData
+                    Data = new EventData
                     {
                         Value = mouseFrame[MouseZone.Logo]
                     }
-                });
-            }
+                },
+                EndpointGameEvent,
+                important: false);
             */
+
+            Logger.Log("Generic effects...");
+            genericFrameManagers.ForEach(frameManager =>
+            {
+                events.AddRange(frameManager.Generate());
+            });
 
             Transmitter.Send(
                 new BaseRequest
                 {
-                    Game = gameName,
+                    Game = GameName,
                     Events = events.ToArray()
                 },
-                "multiple_game_events",
-                false);
+                EndpointGameEvent,
+                important: false);
+            
         }
     }
 }

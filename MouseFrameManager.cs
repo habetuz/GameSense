@@ -8,25 +8,22 @@
 // Visit https://marvin-fuchs.de for more information
 // </summary>
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace GameSense
-{
+
+
+namespace GameSense 
+{ 
+    using System.Collections.Generic;
     using Animation;
 
     static class MouseFrameManager
     {
-        public static MouseAnimator Animator { get; set; }
+
+        public static MouseAnimator Background { get; set; } = new MouseValue(0);
 
         public static Dictionary<MouseZone, int> Generate()
         {
-            if (Animator == null) return null;
-
-            return Animator.NextFrame(null);
+            return Background.NextFrame(null);
         }
     }
 }
