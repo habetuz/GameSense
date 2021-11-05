@@ -5,14 +5,13 @@
 // Marvin Fuchs
 // </author>
 // <summary>
-// Visit https://marvin-fuchs.de for more information
+// Visit https://sharplog.marvin-fuchs.de for more information
 // </summary>
 
 namespace GameSense
 {
     using System;
     using System.Collections.Generic;
-    using System.Windows.Forms;
     using GameSense.Animation;
     using Gma.System.MouseKeyHook;
     using SharpLog;
@@ -21,10 +20,16 @@ namespace GameSense
     /// <summary>
     /// Class responsible for managing keyboard and mouse inputs.
     /// </summary>
-    static class InputManager
+    internal static class InputManager
     {
+        /// <summary>
+        /// Keyboard and mouse hook object.
+        /// </summary>
         private static readonly IKeyboardMouseEvents GlobalHook = Hook.GlobalEvents();
 
+        /// <summary>
+        /// The logger for the <see cref="InputManager"/> class.
+        /// </summary>
         private static readonly MassLogger Logger = new MassLogger(30 * 60000)
         {
             Ident = "GameSense/InputManager",
@@ -33,6 +38,9 @@ namespace GameSense
             Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
+        /// <summary>
+        /// Initializes static members of the <see cref="InputManager"/> class.
+        /// </summary>
         static InputManager()
         {
             Logger.Log("Starting...", LogType.Info, true);
@@ -66,6 +74,11 @@ namespace GameSense
             Logger.Log("Closed!", LogType.Info, instant: true);
         }
 
+        /// <summary>
+        /// Key event of the input manager.
+        /// </summary>
+        /// <param name="sender">The parameter is not used.</param>
+        /// <param name="eventArgs">The parameter is not used.</param>
         private static void KeyEvent(object sender, KeyEventArgs eventArgs)
         {
             try
@@ -82,11 +95,15 @@ namespace GameSense
             }
         }
 
+        /// <summary>
+        /// Mouse event of the input manager.
+        /// </summary>
+        /// <param name="sender">The parameter is not used.</param>
+        /// <param name="eventArgs">The parameter is not used.</param>
         private static void MouseEvent(object sender, MouseEventArgs eventArgs)
         {
             Logger.Log(eventArgs.Button.ToString(), LogType.Info);
             Logger.Log(eventArgs.Button.ToString());
-
         }
     }
 }

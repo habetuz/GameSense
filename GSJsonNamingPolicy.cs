@@ -5,12 +5,13 @@
 // Marvin Fuchs
 // </author>
 // <summary>
-// Visit https://marvin-fuchs.de for more information
+// Visit https://sharplog.marvin-fuchs.de for more information
 // </summary>
 
 namespace GameSense
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Text.Json;
     using SharpLog;
     using SharpLog.Output;
@@ -18,8 +19,12 @@ namespace GameSense
     /// <summary>
     /// A <see cref="System.Text.Json.JsonNamingPolicy"/> for the game sense API.
     /// </summary>
-    class GSJsonNamingPolicy : JsonNamingPolicy
+    internal class GSJsonNamingPolicy : JsonNamingPolicy
     {
+        /// <summary>
+        /// Dictionary containing the .Net names of fields and the json equivalent for the game sense engine.
+        /// </summary>
+        [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1650:ElementDocumentationMustBeSpelledCorrectly", Justification = "Reviewed.")]
         private static readonly Dictionary<string, string> DotNetGSPairs =
             new Dictionary<string, string>
             {
@@ -31,6 +36,9 @@ namespace GameSense
                 { "DeviceType",         "device-type" },
             };
 
+        /// <summary>
+        /// The logger for the <see cref="GSJsonNamingPolicy"/> class.
+        /// </summary>
         private static readonly Logger Logger = new Logger
         {
             Ident = "GameSense/GSJsonNamingPolicy",

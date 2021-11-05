@@ -5,7 +5,7 @@
 // Marvin Fuchs
 // </author>
 // <summary>
-// Visit https://marvin-fuchs.de for more information
+// Visit https://sharplog.marvin-fuchs.de for more information
 // </summary>
 
 namespace GameSense.Animation
@@ -16,10 +16,13 @@ namespace GameSense.Animation
     using SharpLog.Output;
 
     /// <summary>
-    /// An <see cref="KeyboardAnimator"/> that generates a gradient background effect. The gradient gets animated moving from right to left.
+    /// A <see cref="KeyboardAnimator"/> that generates a gradient background effect. The gradient gets animated moving from right to left.
     /// </summary>
     public class KeyboardGradient : KeyboardAnimator
     {
+        /// <summary>
+        /// The logger of the <see cref="KeyboardGradient"/> class.
+        /// </summary>
         private static readonly Logger Logger = new Logger
         {
             Ident = "GameSense/Animator/KeyboardGradient",
@@ -28,7 +31,14 @@ namespace GameSense.Animation
             Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
+        /// <summary>
+        /// The current frame of the animation.
+        /// </summary>
         private int currentFrame = 0;
+
+        /// <summary>
+        /// Array containing all frames of the animation.
+        /// </summary>
         private KeyboardFrame[] frames;
 
         /// <summary>
@@ -36,7 +46,7 @@ namespace GameSense.Animation
         /// </summary>
         /// <param name="color1">The left color of the gradient (RGB format).</param>
         /// <param name="color2">The right color of the gradient (RGB format).</param>
-        /// <param name="time">The speed of the animation. The speed is dependent on the <see cref="GameSense.Controller.FrameLength"/>. It needs 22*'speed' <see cref="GameSense.Animation.IAnimator.NextFrame(KeyboardFrame)"/>'s for one full animation cycle. Default: 1</param>
+        /// <param name="time">The speed of the animation. The speed is dependent on the <see cref="GameSense.Controller.UpdateInterval"/>. It needs 22*speed' <see cref="GameSense.Animation.KeyboardAnimator.NextFrame(KeyboardFrame)"/> calls for one full animation cycle. Default: 1</param>
         /// <param name="length">How long the gradient is compared to the keyboard. The gradient is 'length'*keyboard long. Default: 1</param>
         public KeyboardGradient(int[] color1, int[] color2, int time = 1, int length = 1)
         {
@@ -93,7 +103,7 @@ namespace GameSense.Animation
             {
                 // Generate bitmap
                 KeyboardFrame frame = new KeyboardFrame();
-                for (int x = 0; x < DimensionX; x++)
+                for (int x = 0; x < KeyboardAnimator.DimensionX; x++)
                 {
                     int index = (x * time) + i;
                     if (index >= gradient.Length)
@@ -101,9 +111,9 @@ namespace GameSense.Animation
                         index -= index / gradient.Length * gradient.Length;
                     }
 
-                    for (int y = 0; y < DimensionY; y++)
+                    for (int y = 0; y < KeyboardAnimator.DimensionY; y++)
                     {
-                        frame.Bitmap[x + (DimensionX * y)] = gradient[index];
+                        frame.Bitmap[x + (KeyboardAnimator.DimensionX * y)] = gradient[index];
                     }
                 }
 
@@ -114,10 +124,15 @@ namespace GameSense.Animation
             Logger.Log(this.frames.Length + " frames rendered");
         }
 
+        /// <summary>
+        /// Generates the next <see cref="KeyboardFrame"/> of the animation.
+        /// </summary>
+        /// <param name="bottomLayer">The bottom <see cref="KeyboardFrame"/> the method will add its own <see cref="KeyboardFrame"/> on.</param>
+        /// <returns>the next <see cref="KeyboardFrame"/></returns>
         public override KeyboardFrame NextFrame(KeyboardFrame bottomLayer)
         {
             KeyboardFrame frame = this.frames[this.currentFrame];
-            Logger.Log("Frame:" + this.currentFrame);
+            Logger.Log("frame:" + this.currentFrame);
             this.currentFrame++;
             if (this.currentFrame >= this.frames.Length)
             {

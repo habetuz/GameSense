@@ -5,7 +5,7 @@
 // Marvin Fuchs
 // </author>
 // <summary>
-// Visit https://marvin-fuchs.de for more information
+// Visit https://sharplog.marvin-fuchs.de for more information
 // </summary>
 
 namespace GameSense.Animation
@@ -15,15 +15,14 @@ namespace GameSense.Animation
     /// </summary>
     public abstract class KeyAnimator : KeyboardAnimator
     {
-        protected bool finished;
-
         /// <summary>
         /// Gets a value indicating whether the animation has finished yet.
         /// </summary>
-        public bool Finished { 
+        public bool Finished
+        {
             get
             {
-                return this.finished;
+                return this.InternalFinished;
             }
         }
 
@@ -31,6 +30,11 @@ namespace GameSense.Animation
         /// Gets or sets the key to be animated.
         /// </summary>
         public Key Key { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the animation has finished yet.
+        /// </summary>
+        protected bool InternalFinished { get; set; }
 
         /// <summary>
         /// Creates a copy of itself.

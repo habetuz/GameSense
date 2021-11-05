@@ -5,7 +5,7 @@
 // Marvin Fuchs
 // </author>
 // <summary>
-// Visit https://marvin-fuchs.de for more information
+// Visit https://sharplog.marvin-fuchs.de for more information
 // </summary>
 
 namespace GameSense
@@ -16,10 +16,13 @@ namespace GameSense
     using SharpLog.Output;
 
     /// <summary>
-    /// Keeps track of all <see cref="GameSense.Animation.IAnimator"/> and combines the <see cref="GameSense.Struct.Frame"/>s from <see cref="GameSense.Animation.IAnimator.NextFrame(Struct.Frame)"/> to one final <see cref="GameSense.Struct.Frame"/>
+    /// Frame manager for all <see cref="KeyboardAnimator"/> and <see cref="KeyAnimator"/>.
     /// </summary>
-    static class KeyboardFrameManager
+    internal static class KeyboardFrameManager
     {
+        /// <summary>
+        /// The logger for the <see cref="KeyboardFrameManager"/> class.
+        /// </summary>
         private static readonly Logger Logger = new Logger()
         {
             Ident = "GameSense/KeyboardFrameManager",
@@ -27,6 +30,9 @@ namespace GameSense
             Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
+        /// <summary>
+        /// List with <see cref="KeyAnimator"/> for keys that were pressed and where the animation is still going on.
+        /// </summary>
         private static readonly List<KeyAnimator> PressedKeys = new List<KeyAnimator>();
 
         /// <summary>
@@ -51,7 +57,10 @@ namespace GameSense
         /// <returns>The combined <see cref="GameSense.Struct.Frame"/></returns>
         public static KeyboardFrame Generate()
         {
-            if (Background == null) return null;
+            if (Background == null)
+            {
+                return null;
+            }
 
             KeyboardFrame frame = Background.NextFrame().Copy();
             Logger.Log(PressedKeys.Count + string.Empty);

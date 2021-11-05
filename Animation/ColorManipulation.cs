@@ -5,7 +5,7 @@
 // Marvin Fuchs
 // </author>
 // <summary>
-// Visit https://marvin-fuchs.de for more information
+// Visit https://sharplog.marvin-fuchs.de for more information
 // </summary>
 
 namespace GameSense.Animation
@@ -20,6 +20,9 @@ namespace GameSense.Animation
     /// </summary>
     public static class ColorManipulation
     {
+        /// <summary>
+        /// Logger of the <see cref="ColorManipulation"/> class.
+        /// </summary>
         private static readonly Logger Logger = new Logger()
         {
             Ident = "ColorManipulation",

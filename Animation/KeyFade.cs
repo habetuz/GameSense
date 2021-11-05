@@ -5,7 +5,7 @@
 // Marvin Fuchs
 // </author>
 // <summary>
-// Visit https://marvin-fuchs.de for more information
+// Visit https://sharplog.marvin-fuchs.de for more information
 // </summary>
 
 namespace GameSense.Animation
@@ -19,6 +19,9 @@ namespace GameSense.Animation
     /// </summary>
     public class KeyFade : KeyAnimator
     {
+        /// <summary>
+        /// Logger of the <see cref="KeyFade"/> class.
+        /// </summary>
         private static readonly Logger Logger = new Logger()
         {
             Ident = "KeyFade",
@@ -26,12 +29,23 @@ namespace GameSense.Animation
             Outputs = new List<IOutput>() { new ConsoleOutput(), new FileOutput() { FileName = Controller.LogFile, LogFlags = LogType.Warning | LogType.Error } },
         };
 
+        /// <summary>
+        /// Amount of <see cref="KeyAnimator.NextFrame(KeyboardFrame)"/> calls the key needs to fade out.
+        /// </summary>
         private int fadeDuration = 60;
+
+        /// <summary>
+        /// The current transparency of the color.
+        /// </summary>
         private int transparency = 100;
+
+        /// <summary>
+        /// The color to fade out.
+        /// </summary>
         private int[] color = new int[] { 255, 255, 255 };
 
         /// <summary>
-        /// Sets amount of <see cref="GameSense.Animation.KeyboardAnimator.NextFrame(KeyboardFrame)"/> calls the key needs to fade out. Time dependents on the <see cref="GameSense.Controller.FrameLength"/>. Default: 100.
+        /// Sets amount of <see cref="KeyAnimator.NextFrame(KeyboardFrame)"/> calls the key needs to fade out. Time dependents on the <see cref="GameSense.Controller.FrameLength"/>. Default: 100.
         /// </summary>
         public int FadeDuration
         {
@@ -65,7 +79,7 @@ namespace GameSense.Animation
         /// <summary>
         /// Generates the next <see cref="KeyboardFrame"/>.
         /// </summary>
-        /// <param name="bottomLayer">The bottom <see cref="KeyboardFrame"/> the method will add it's own <see cref="KeyboardFrame"/> on.</param>
+        /// <param name="bottomLayer">The bottom <see cref="KeyboardFrame"/> the method will add its own <see cref="KeyboardFrame"/> on.</param>
         /// <returns>the next <see cref="KeyboardFrame"/></returns>
         public override KeyboardFrame NextFrame(KeyboardFrame bottomLayer)
         {
@@ -73,7 +87,7 @@ namespace GameSense.Animation
             Logger.Log("Next frame. Transparency: " + this.transparency);
             if (this.transparency <= 0)
             {
-                this.finished = true;
+                this.InternalFinished = true;
                 return bottomLayer;
             }
 

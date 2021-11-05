@@ -5,7 +5,7 @@
 // Marvin Fuchs
 // </author>
 // <summary>
-// Visit https://marvin-fuchs.de for more information
+// Visit https://sharplog.marvin-fuchs.de for more information
 // </summary>
 
 namespace GameSense.Animation
@@ -16,7 +16,12 @@ namespace GameSense.Animation
     /// Abstract class for mouse animations.
     /// </summary>
     public abstract class MouseAnimator
-    { 
+    {
+        /// <summary>
+        /// Generates the next frame as dictionary of the animation.
+        /// </summary>
+        /// <param name="bottomLayer">The bottom layer the animator should render on top.</param>
+        /// <returns>The next frame.</returns>
         public abstract Dictionary<MouseZone, int> NextFrame(Dictionary<MouseZone, int> bottomLayer);
     }
 }
